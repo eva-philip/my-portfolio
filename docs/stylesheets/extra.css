@@ -1,87 +1,247 @@
-/* Clean minimal styling */
-:root {
-    --md-primary-fg-color: #ffffff;
-    --md-primary-fg-color--light: #ffffff;
-    --md-primary-fg-color--dark: #f5f5f5;
-    --md-primary-bg-color: #1a1a1a;
-    --md-accent-fg-color: #4caf7d;
+/* ============================================================
+   GLOBAL COLOR VARIABLES
+   Overrides MkDocs Material's default color system.
+   These variables are used throughout the theme automatically.
+   ============================================================ */
+   :root {
+    --md-primary-fg-color: #ffffff;        /* Main header background — set to white */
+    --md-primary-fg-color--light: #ffffff; /* Lighter variant of header background */
+    --md-primary-fg-color--dark: #f5f5f5;  /* Darker variant of header background */
+    --md-primary-bg-color: #1a1a1a;        /* Text color on primary background */
+    --md-accent-fg-color: #4caf7d;         /* Accent color used for links and highlights */
   }
   
-  /* Header */
+  /* ============================================================
+     HEADER BAR
+     The top bar containing the site title and logo.
+     We remove the default shadow and add a green bottom border
+     to give it a clean, minimal look.
+     ============================================================ */
   .md-header {
-    border-bottom: 2px solid #4caf7d;
-    box-shadow: none;
+    border-bottom: 2px solid #4caf7d; /* Green underline beneath the header */
+    box-shadow: none;                  /* Remove default drop shadow */
   }
   
   .md-header__title {
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-weight: 700;           /* Make the site title bold */
+    letter-spacing: 0.02em;    /* Slightly space out the letters */
   }
-
-  /* Header logo icon color and size */
-.md-header__button.md-logo svg {
-  fill: #4caf7d;
-  width: 32px;
-  height: 32px;
-}
   
-  /* Navigation tabs */
+  /* ============================================================
+     HEADER LOGO ICON
+     Controls the color and size of the Material icon
+     displayed in the top left of the header.
+     ============================================================ */
+  .md-header__button.md-logo svg {
+    fill: #000000; /* Fill the SVG icon with black */
+    width: 40px;   /* Set icon width (default is 24px) */
+    height: 40px;  /* Set icon height (default is 24px) */
+  }
+  
+  /* ============================================================
+     NAVIGATION TABS
+     The row of page links (Home, About, Portfolio, Work With Me)
+     that appears below the header bar.
+     ============================================================ */
   .md-tabs {
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #f9f9f9;       /* Light gray background for the tab bar */
+    border-bottom: 1px solid #e0e0e0; /* Subtle separator line below tabs */
   }
   
   .md-tabs__link {
-    color: #1a1a1a !important;
-    font-weight: 500;
+    color: #1a1a1a !important; /* Dark text color for all tab links */
+    font-weight: 500;           /* Medium weight for readability */
   }
   
   .md-tabs__link--active {
-    color: #4caf7d !important;
-    border-bottom: 2px solid #4caf7d;
+    color: #4caf7d !important;         /* Green text for the currently active tab */
+    border-bottom: 2px solid #4caf7d; /* Green underline on the active tab */
   }
   
-  /* Content area */
+  /* ============================================================
+     MAIN CONTENT AREA
+     Constrains the maximum width of the page content
+     so it doesn't stretch too wide on large screens.
+     ============================================================ */
   .md-content {
-    max-width: 860px;
+    max-width: 860px; /* Limit content width for readability */
   }
   
-  /* Headings */
+  /* ============================================================
+     PAGE LAYOUT CENTERING
+     Centers the entire page content horizontally.
+     Without this, MkDocs pushes content to the left
+     because it reserves space for a sidebar by default.
+     ============================================================ */
+  .md-grid {
+    max-width: 1000px; /* Maximum width of the page grid */
+    margin: 0 auto;    /* Auto left/right margins center the grid */
+  }
+  
+  /* ============================================================
+     HEADINGS
+     Styles for H1 and H2 headings across all pages.
+     H1 gets a green underline to match the site accent color.
+     ============================================================ */
   .md-typeset h1 {
-    font-weight: 800;
-    color: #1a1a1a;
-    border-bottom: 2px solid #4caf7d;
-    padding-bottom: 0.3em;
+    font-weight: 800;                  /* Extra bold for page titles */
+    color: #1a1a1a;                    /* Dark color for strong contrast */
+    border-bottom: 2px solid #4caf7d; /* Green underline beneath H1 */
+    padding-bottom: 0.3em;             /* Space between text and underline */
   }
   
   .md-typeset h2 {
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-top: 2em;
+    font-weight: 700;   /* Bold for section headings */
+    color: #1a1a1a;     /* Dark color for strong contrast */
+    margin-top: 2em;    /* Extra space above H2 to separate sections */
   }
   
-  /* Links */
+  /* ============================================================
+     LINKS
+     Styles for all hyperlinks in the page content.
+     Uses green to match the site accent color.
+     ============================================================ */
   .md-typeset a {
-    color: #4caf7d;
+    color: #4caf7d; /* Green for all links */
   }
   
   .md-typeset a:hover {
-    color: #2e7d52;
+    color: #2e7d52; /* Darker green when hovering over a link */
   }
   
-  /* Tables */
+  /* ============================================================
+     TABLES
+     Styles for all Markdown tables across the site.
+     Adds a light border and green-tinted header row.
+     ============================================================ */
   .md-typeset table {
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    border: 1px solid #e0e0e0; /* Light gray border around the table */
+    border-radius: 4px;         /* Slightly rounded corners */
   }
   
   .md-typeset thead {
-    background-color: #f0faf4;
+    background-color: #f0faf4; /* Light green tint for the header row */
   }
   
-  /* Code blocks */
+  /* ============================================================
+     CODE BLOCKS
+     Styles for inline code and code snippets.
+     Uses a light green background to match the site palette.
+     ============================================================ */
   .md-typeset code {
-    background-color: #f0faf4;
-    color: #1a1a1a;
-    border-radius: 3px;
+    background-color: #f0faf4; /* Light green tint background for code */
+    color: #1a1a1a;             /* Dark text for readability */
+    border-radius: 3px;         /* Slightly rounded corners */
+  }
+  
+  /* ============================================================
+     HERO SECTION
+     The large introductory banner on the home page.
+     Uses a soft green gradient background with centered text
+     and a rounded card-like appearance.
+     ============================================================ */
+  .hero {
+    text-align: center;                                          /* Center all text */
+    padding: 4rem 2rem;                                          /* Generous internal spacing */
+    background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%); /* Subtle green-to-white gradient */
+    border-radius: 12px;                                         /* Rounded corners */
+    margin-bottom: 2rem;                                         /* Space below the hero section */
+    border: 1px solid #d0ead9;                                   /* Soft green border */
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem !important;    /* Large title size */
+    border-bottom: none !important;  /* Remove the default H1 green underline inside hero */
+    margin-bottom: 0.5rem !important; /* Tighter spacing below the title */
+  }
+  
+  .hero h3 {
+    color: #4caf7d;        /* Green subtitle text */
+    font-weight: 500;      /* Medium weight */
+    margin-bottom: 1.5rem; /* Space below subtitle */
+  }
+  
+  .hero p {
+    font-size: 1.1rem;              /* Slightly larger body text */
+    color: #444;                    /* Softer dark gray instead of pure black */
+    max-width: 600px;               /* Limit paragraph width for readability */
+    margin: 0 auto 2rem auto;       /* Center the paragraph and add space below */
+  }
+  
+  /* ============================================================
+     CARDS GRID
+     Styles for the grid of cards on the home page
+     (What I Write, Impact sections).
+     Cards get a border and a hover effect with a green glow.
+     ============================================================ */
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li {
+    border: 1px solid #e0e0e0; /* Light gray border around each card */
+    border-radius: 8px;         /* Rounded corners */
+    padding: 1.5rem;            /* Internal spacing inside the card */
+    transition: box-shadow 0.2s ease, border-color 0.2s ease; /* Smooth hover animation */
+  }
+  
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .grid.cards > ol > li:hover {
+    box-shadow: 0 4px 12px rgba(76, 175, 125, 0.15); /* Soft green glow on hover */
+    border-color: #4caf7d;                            /* Green border on hover */
+  }
+  
+  /* ============================================================
+     CARD ICONS
+     Controls the size and alignment of Material icons
+     used inside the cards grid on the home page.
+     ============================================================ */
+  .lg {
+    font-size: 2rem !important; /* Large icon size inside cards */
+  }
+  
+  .middle {
+    vertical-align: middle; /* Vertically align icon with adjacent text */
+  }
+  
+  /* ============================================================
+     BUTTONS
+     Both the primary (filled) and secondary (outlined) buttons
+     are styled to use the green accent color consistently.
+     On hover, both buttons fill with green and turn text white.
+     ============================================================ */
+  .md-typeset .md-button--primary,
+  .md-typeset .md-button {
+    background-color: transparent !important; /* No fill by default — outlined style */
+    color: #4caf7d !important;                /* Green text */
+    border-color: #4caf7d !important;         /* Green border */
+  }
+  
+  .md-typeset .md-button--primary:hover,
+  .md-typeset .md-button:hover {
+    background-color: #4caf7d !important; /* Fill with green on hover */
+    color: white !important;              /* White text on hover */
+    border-color: #4caf7d !important;     /* Keep green border on hover */
+  }
+  
+  /* Fix for anchor-tag buttons where color inheritance breaks */
+  .md-typeset a.md-button--primary {
+    color: #4caf7d !important; /* Ensure green text on primary button links */
+  }
+  
+  .md-typeset a.md-button--primary:hover {
+    color: white !important; /* White text when hovering primary button links */
+  }
+  
+  /* ============================================================
+     OPEN TO OPPORTUNITIES BANNER
+     The green tip box at the bottom of the home page
+     that signals availability for new roles.
+     Overrides the default MkDocs blue tip admonition style.
+     ============================================================ */
+  .md-typeset .admonition.tip {
+    border-color: #4caf7d;     /* Green left border on the banner */
+    background-color: #f0faf4; /* Light green background */
+  }
+  
+  .md-typeset .admonition.tip .admonition-title {
+    background-color: #d0ead9; /* Slightly darker green for the title bar */
+    color: #1a1a1a;             /* Dark text for readability */
   }

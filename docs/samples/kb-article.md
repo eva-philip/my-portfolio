@@ -1,6 +1,6 @@
 # Falcon Sensor Not Reporting to Console
 
-| | |
+|Type|Description|
 |---|---|
 | **Article type** | Troubleshooting / Break-fix |
 | **Audience** | IT administrators and security engineers |
