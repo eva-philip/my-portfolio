@@ -1,0 +1,31 @@
+site_name: Evangeline Philip | Technical Writer
+site_description: Portfolio of Evangeline Philip, Senior Technical Writer
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: white
+    accent: green
+  font:
+    text: Inter
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - toc.integrate
+    - header.autohide
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Portfolio:
+    - Overview: portfolio.md
+    - KB Article: samples/kb-article.md
+    - Integration Guide: samples/integration-guide.md
+    - API Reference: samples/api-reference.md
+  - Resume: resume.md
