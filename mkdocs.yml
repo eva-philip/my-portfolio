@@ -1,4 +1,4 @@
-site_name: Evangeline Philip | Technical Writer
+site_name: Evangeline Philip | Senior Technical Writer
 site_description: Portfolio of Evangeline Philip, Senior Technical Writer
 
 theme:
@@ -28,4 +28,4 @@ nav:
     - KB Article: samples/kb-article.md
     - Integration Guide: samples/integration-guide.md
     - API Reference: samples/api-reference.md
-    - Work With Me: work-with-me.md
+  - Work With Me: work-with-me.md  
