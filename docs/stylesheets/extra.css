@@ -371,3 +371,10 @@
   .md-typeset .grid.cards .twemoji svg {
     fill: #4caf7d !important;
   }
+  /* ============================================================
+   HIDE RIGHT TABLE OF CONTENTS
+   Removes the TOC on the right side across all pages.
+   ============================================================ */
+.md-sidebar--secondary {
+  display: none !important;
+}
