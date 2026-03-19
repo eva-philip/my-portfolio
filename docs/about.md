@@ -16,6 +16,7 @@ I have 5 years of experience creating technical documentation for software and c
 
 **Senior Technical Writer — SentinelOne**
 2025 – Present
+
 - Own end-to-end documentation for enterprise cybersecurity platform modules and Marketplace integrations.
 - Accelerated documentation drafting time by 50% by integrating AI-assisted drafting workflows while maintaining editorial standards.
 
