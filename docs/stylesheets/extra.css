@@ -17,6 +17,13 @@
     font-weight: 700;
     letter-spacing: 0.02em;
   }
+
+  /* Header logo icon color and size */
+.md-header__button.md-logo svg {
+  fill: #4caf7d;
+  width: 32px;
+  height: 32px;
+}
   
   /* Navigation tabs */
   .md-tabs {

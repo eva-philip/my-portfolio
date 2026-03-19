@@ -1,5 +1,6 @@
 # How to Build a Technical Writing Portfolio Site
 **Author:** Jane Doe
+
 **Purpose:** Step-by-step guide for building a professional technical writing portfolio using MkDocs and GitHub Pages.
 
 > **Before you start:** Replace all instances of `jane-doe` and `Jane Doe` in this guide with your own name and GitHub username.

@@ -3,6 +3,9 @@ site_description: Portfolio of Evangeline Philip, Senior Technical Writer
 
 theme:
   name: material
+  icon:
+    logo: material/home-roof
+  favicon: assets/favicon.svg
   palette:
     scheme: default
     primary: white
