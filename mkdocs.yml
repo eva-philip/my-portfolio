@@ -7,9 +7,18 @@ theme:
     logo: material/home-roof
   favicon: assets/favicon.svg
   palette:
-    scheme: default
-    primary: white
-    accent: green
+    - scheme: default
+      primary: white
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   font:
     text: Inter
     code: Roboto Mono
@@ -17,8 +26,8 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.sections
-    - toc.integrate
-#    - header.autohide
+    # - toc.integrate
+    # - header.autohide
 
 extra_css:
   - stylesheets/extra.css
@@ -33,7 +42,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-#  - About: about.md
+  # - About: about.md
   - Portfolio:
     - Overview: portfolio.md
     - Process Guide: samples/process-guide.md

@@ -245,3 +245,117 @@
     background-color: #d0ead9; /* Slightly darker green for the title bar */
     color: #1a1a1a;             /* Dark text for readability */
   }
+  /* ============================================================
+   DARK MODE OVERRIDES
+   These rules only apply when the user switches to dark mode.
+   The [data-md-color-scheme="slate"] selector targets the
+   dark mode theme set in mkdocs.yml.
+   ============================================================ */
+
+/* Hero section — softer dark background instead of light green */
+[data-md-color-scheme="slate"] .hero {
+  background: linear-gradient(135deg, #1a2e24 0%, #1e1e1e 100%);
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .hero h1 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .hero h3 {
+  color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .hero p {
+  color: #aaaaaa;
+}
+
+/* Tools tags — dark background with green text */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: #1a2e24;
+  color: #4caf7d;
+}
+
+/* Open to Opportunities banner — better contrast in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip .admonition-title {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip p {
+  color: #cccccc;
+}
+/* 1. Logo icon — white in dark mode */
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
+  fill: #ffffff;
+}
+
+/* 2. Headings — white in dark mode */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #ffffff;
+}
+
+/* 3. Cards — dark green tinted background with green border */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li {
+  background-color: #1a2e24;
+  border-color: #2e5e3e;
+  color: #cccccc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
+  border-color: #4caf7d;
+  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.2);
+}
+
+/* 4. Table headers — dark background with readable text */
+[data-md-color-scheme="slate"] .md-typeset thead {
+  background-color: #1a2e24;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset thead th {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table {
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-typeset td {
+  color: #cccccc;
+}
+
+/* 5. Standardize all headings across site in dark mode */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #ffffff;
+  border-bottom-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: #ffffff;
+}
+/* Nav tabs — visible in dark mode */
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #4caf7d !important;
+  border-bottom: 2px solid #4caf7d;
+}
