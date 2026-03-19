@@ -7,6 +7,7 @@ hide:
 <div class="hero" markdown>
 
 # Hi, I'm Evangeline Philip 👋
+
 ### Senior Technical Writer · Cybersecurity · Docs-as-Code
 
 I turn complex technical concepts into clear, accurate, and user-focused

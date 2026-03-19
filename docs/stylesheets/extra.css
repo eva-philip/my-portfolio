@@ -359,3 +359,15 @@
   color: #4caf7d !important;
   border-bottom: 2px solid #4caf7d;
 }
+/* ============================================================
+   FIX CARD ICONS — small and green
+   ============================================================ */
+   .md-typeset .grid.cards .twemoji {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 1rem !important;
+  }
+  
+  .md-typeset .grid.cards .twemoji svg {
+    fill: #4caf7d !important;
+  }
