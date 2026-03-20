@@ -5,6 +5,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+### Added
+- Ask Claude About My Work — an AI-powered portfolio assistant embedded as a dedicated page (`ask.html`)
+- Visitors can ask questions about writing samples, tools, impact, and documentation approach
+- Widget powered by Claude (Anthropic API) with 6 suggested questions
+- Onboarding screen explaining the bring-your-own-key model with privacy reassurance
+- GitHub Actions workflow for automated deployment via `mkdocs gh-deploy`
+
+### Improved
+- Navigation updated to include Ask Claude About My Work page
+- Deploy workflow moved from manual `mkdocs gh-deploy` to GitHub Actions on every push to main
+
+---
+
 ## v1.3.0 — March 2026
 
 ### Added

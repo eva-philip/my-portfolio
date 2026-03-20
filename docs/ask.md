@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ask About Evangeline's Work</title>
+# Ask Claude About My Work
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Sora:wght@300;400;500;600;700&display=swap');
 
@@ -883,5 +879,3 @@ async function sendMessage() {
   input.focus();
 }
 </script>
-</body>
-</html>

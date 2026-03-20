@@ -12,6 +12,8 @@ docs-as-code workflows and technical documentation skills.
 
 [View Sample](samples/process-guide.md)
 
+---
+
 ## KB / Troubleshooting Article
 **Falcon Sensor Not Reporting to Console**
 
