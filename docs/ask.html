@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask About Evangeline's Work</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Sora:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --green: #4caf7d;
+    --green-dark: #2e7d52;
+    --green-pale: #f0faf4;
+    --green-glow: rgba(76, 175, 125, 0.15);
+    --ink: #1a1a1a;
+    --ink-muted: #555;
+    --border: #e0e0e0;
+    --surface: #ffffff;
+    --surface-alt: #f9f9f9;
+    --radius: 12px;
+    --mono: 'DM Mono', monospace;
+    --sans: 'Sora', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: transparent;
+    color: var(--ink);
+    padding: 0;
+  }
+
+  /* ── WIDGET CONTAINER ── */
+  #eva-search-widget {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    max-width: 760px;
+    margin: 2rem auto;
+    font-family: var(--sans);
+  }
+
+  /* ── HEADER ── */
+  .widget-header {
+    background: var(--green-pale);
+    border-bottom: 1.5px solid var(--border);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .header-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .header-text h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .header-text p {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .api-key-toggle {
+    margin-left: auto;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .api-key-toggle:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── API KEY PANEL ── */
+  .api-key-panel {
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: none;
+    gap: 10px;
+    align-items: center;
+  }
+  .api-key-panel.open { display: flex; }
+
+  .api-key-panel label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .api-key-panel input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .api-key-panel input:focus { border-color: var(--green); }
+
+  .key-save-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .key-save-btn:hover { background: var(--green-dark); }
+
+  /* ── SUGGESTED CHIPS ── */
+  .suggestions {
+    padding: 14px 24px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .suggestions-label {
+    width: 100%;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .chip {
+    background: var(--green-pale);
+    border: 1px solid rgba(76,175,125,0.3);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    color: var(--green-dark);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 400;
+  }
+  .chip:hover {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+    transform: translateY(-1px);
+  }
+
+  /* ── CHAT MESSAGES ── */
+  .chat-window {
+    min-height: 220px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-behavior: smooth;
+  }
+
+  .chat-window::-webkit-scrollbar { width: 4px; }
+  .chat-window::-webkit-scrollbar-track { background: transparent; }
+  .chat-window::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--ink-muted);
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  .empty-state svg { opacity: 0.25; }
+  .empty-state p { font-size: 0.82rem; font-weight: 300; }
+
+  /* messages */
+  .msg {
+    display: flex;
+    gap: 10px;
+    animation: slideIn 0.2s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.user { flex-direction: row-reverse; }
+
+  .msg-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .msg.user .msg-avatar {
+    background: var(--ink);
+    color: white;
+    font-family: var(--mono);
+  }
+
+  .msg.assistant .msg-avatar {
+    background: var(--green);
+    color: white;
+  }
+
+  .msg-bubble {
+    max-width: 78%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .msg.user .msg-bubble {
+    background: var(--ink);
+    color: white;
+    border-radius: 10px 2px 10px 10px;
+  }
+
+  .msg.assistant .msg-bubble {
+    background: var(--green-pale);
+    border: 1px solid rgba(76,175,125,0.2);
+    color: var(--ink);
+    border-radius: 2px 10px 10px 10px;
+  }
+
+  .msg-bubble strong { font-weight: 600; }
+  .msg-bubble code {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    background: rgba(76,175,125,0.15);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .msg.user .msg-bubble code {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* source tag */
+  .source-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    color: var(--green-dark);
+    background: rgba(76,175,125,0.1);
+    border: 1px solid rgba(76,175,125,0.2);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  /* typing indicator */
+  .typing-indicator .msg-bubble {
+    padding: 12px 16px;
+  }
+
+  .typing-dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .typing-dots span {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: bounce 1.1s infinite ease-in-out;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+
+  /* error */
+  .msg-error .msg-bubble {
+    background: #fff5f5;
+    border-color: #fecaca;
+    color: #b91c1c;
+  }
+
+  /* ── INPUT ROW ── */
+  .input-row {
+    display: flex;
+    gap: 10px;
+    padding: 14px 24px 18px;
+    border-top: 1.5px solid var(--border);
+    background: var(--surface);
+  }
+
+  .input-field {
+    flex: 1;
+    background: var(--surface-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: var(--sans);
+    font-size: 0.84rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    resize: none;
+    min-height: 42px;
+    max-height: 120px;
+    overflow-y: auto;
+    line-height: 1.4;
+  }
+
+  .input-field:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-glow);
+  }
+
+  .input-field::placeholder { color: #aaa; }
+
+  .send-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, transform 0.1s;
+    flex-shrink: 0;
+    align-self: flex-end;
+  }
+
+  .send-btn:hover:not(:disabled) { background: var(--green-dark); transform: translateY(-1px); }
+  .send-btn:active:not(:disabled) { transform: translateY(0); }
+  .send-btn:disabled { background: var(--border); cursor: not-allowed; }
+  .send-btn svg { width: 17px; height: 17px; fill: white; }
+
+  /* ── FOOTER ── */
+  .widget-footer {
+    padding: 8px 24px 10px;
+    border-top: 1px solid var(--border);
+    background: var(--surface-alt);
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    color: #bbb;
+    text-align: center;
+  }
+
+  .widget-footer a { color: var(--green); text-decoration: none; }
+  .widget-footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .widget-header { padding: 14px 16px; }
+    .chat-window { padding: 16px; }
+    .input-row { padding: 12px 16px 14px; }
+    .suggestions { padding: 12px 16px 8px; }
+    .msg-bubble { max-width: 88%; font-size: 0.82rem; }
+    .api-key-panel { padding: 12px 16px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div id="eva-search-widget">
+
+  <!-- HEADER -->
+  <div class="widget-header">
+    <div class="header-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <h3>Ask About Evangeline's Work</h3>
+      <p>Powered by Claude · Answers from 4 writing samples</p>
+    </div>
+    <button class="api-key-toggle" onclick="toggleApiPanel()" id="key-toggle-btn">⚙ API Key</button>
+  </div>
+
+  <!-- API KEY PANEL -->
+  <div class="api-key-panel" id="api-key-panel">
+    <label>sk-ant-…</label>
+    <input type="password" id="api-key-input" placeholder="Paste your Anthropic API key here" autocomplete="off"/>
+    <button class="key-save-btn" onclick="saveApiKey()">Save</button>
+  </div>
+
+  <!-- SUGGESTED QUESTIONS -->
+  <div class="suggestions">
+    <div class="suggestions-label">Try asking →</div>
+    <button class="chip" onclick="useChip(this)">What types of docs does Evangeline write?</button>
+    <button class="chip" onclick="useChip(this)">How does the Falcon–Splunk integration work?</button>
+    <button class="chip" onclick="useChip(this)">What's the API authentication method used?</button>
+    <button class="chip" onclick="useChip(this)">How do you fix a Falcon sensor not reporting?</button>
+    <button class="chip" onclick="useChip(this)">What tools and tech does Evangeline use?</button>
+    <button class="chip" onclick="useChip(this)">Walk me through the portfolio site build process</button>
+  </div>
+
+  <!-- CHAT WINDOW -->
+  <div class="chat-window" id="chat-window">
+    <div class="empty-state" id="empty-state">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--green)">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+      </svg>
+      <p>Ask a question above to explore Evangeline's writing samples.</p>
+    </div>
+  </div>
+
+  <!-- INPUT ROW -->
+  <div class="input-row">
+    <textarea
+      class="input-field"
+      id="user-input"
+      placeholder="Ask something about the writing samples…"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="send-btn" id="send-btn" onclick="sendMessage()" title="Send">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="widget-footer">
+    Responses generated by Claude AI based on <a href="https://eva-philip.github.io/my-portfolio/portfolio/" target="_blank">portfolio writing samples</a> · Not stored · Not financial or legal advice
+  </div>
+
+</div>
+
+<script>
+// ── KNOWLEDGE BASE ───────────────────────────────────────────────────────────
+const PORTFOLIO_CONTEXT = `
+You are an AI assistant embedded in Evangeline Philip's professional portfolio website.
+Evangeline is a Senior Technical Writer specializing in cybersecurity and docs-as-code.
+Your job is to answer visitor questions based ONLY on the four writing samples below.
+Be helpful, specific, and cite which sample(s) you're drawing from.
+Keep answers concise — 2–4 sentences unless the question requires more detail.
+If a question can't be answered from the samples, say so politely and suggest contacting Evangeline via LinkedIn.
+
+---
+WRITING SAMPLE 1 — KB ARTICLE: "Falcon Sensor Not Reporting to Console"
+Type: Troubleshooting / Break-fix
+Audience: IT administrators and security engineers
+Product: CrowdStrike Falcon
+
+Overview: If a host with the Falcon sensor installed does not appear in the Falcon console, or shows as inactive, the sensor may not be communicating with the CrowdStrike cloud.
+
+Symptoms:
+- Host does not appear under Hosts in the Falcon console after installation
+- Host shows status: Inactive or Last Seen more than 30 minutes ago
+- Sensor service is running locally but console shows no telemetry
+- No detections or events are appearing from an expected host
+
+Common Causes:
+- Network/firewall blocking: Outbound traffic to CrowdStrike cloud endpoints is blocked on port 443
+- Proxy misconfiguration: Sensor is not configured to route traffic through the corporate proxy
+- Sensor service not running: The CrowdStrike Falcon Sensor service has stopped or failed to start
+- Clock skew: Host system time is out of sync, causing TLS handshake failures
+- Incorrect Customer ID (CID): Sensor was installed with a wrong or invalid CID
+
+Resolution Steps:
+Step 1: Verify the sensor service is running — run "sc query csagent"; if STOPPED, run "sc start csagent"
+Step 2: Check network connectivity — run "Test-NetConnection -ComputerName ts01-b.cloudsink.net -Port 443"; TcpTestSucceeded: True means success
+Step 3: Validate proxy configuration — check registry at HKLM\\SYSTEM\\CrowdStrike\\...\\Default for ProxyServer and ProxyPort values
+Step 4: Check system clock — run "w32tm /query /status"; if out of sync, run "w32tm /resync /force"
+Step 5: Verify Customer ID (CID) — go to Falcon console > Host Setup > Sensor Downloads; confirm CustomerID in registry matches
+
+After completing steps, wait 5–10 minutes and check Falcon console Hosts for Normal status.
+
+---
+WRITING SAMPLE 2 — INTEGRATION GUIDE: "Integrating Falcon with Splunk SIEM"
+Type: Integration / How-to guide
+Audience: Security engineers and SOC analysts
+Product: CrowdStrike Falcon + Splunk
+
+Overview: This guide walks through integrating CrowdStrike Falcon with Splunk to stream detection events, endpoint telemetry, and audit logs directly into Splunk.
+
+Requirements:
+- Falcon subscription: Falcon Insight XDR or Falcon Intelligence
+- Splunk Enterprise 8.x or above, or Splunk Cloud
+- CrowdStrike Add-on for Splunk Version 3.x or above
+- Falcon API credentials: Client ID and Client Secret with Event Streams scope
+- Network access: Splunk instance must reach api.crowdstrike.com on port 443
+
+Step 1: Generate Falcon API Credentials — go to Support and Resources > API Clients and Keys > Add new API client; enable Event Streams Read, Detections Read, Hosts Read; copy Client ID and Client Secret (only shown once)
+
+Step 2: Install the CrowdStrike Add-on for Splunk — search Splunkbase for "CrowdStrike Falcon Event Streams" and install; restart Splunk
+
+Step 3: Configure the Integration — in Splunk, go to Apps > CrowdStrike Falcon Event Streams > Configuration > Add Account; enter Client ID, Client Secret, Base URL: https://api.crowdstrike.com; create data input with index "crowdstrike" and desired event types
+
+Step 4: Verify the Integration — run: index="crowdstrike" | head 10; if no data after 15 minutes check: index=_internal source=*crowdstrike* error
+
+Troubleshooting:
+- No data after 15 minutes: Check credentials and port 443 access to api.crowdstrike.com
+- Authentication failed: Regenerate Client Secret and update Splunk config
+- Missing event types: Check API client scopes
+- High event volume: Filter specific EventType values instead of streaming all events
+
+---
+WRITING SAMPLE 3 — API REFERENCE: "Get Detections — API Reference"
+Type: API reference documentation
+Audience: Developers and security engineers
+Product: CrowdStrike Falcon Detections API
+
+Endpoint: GET /detects/queries/detects/v1
+Returns a list of detection IDs matching query parameters. Use returned IDs with Get Detection Details endpoint.
+
+Authentication: OAuth 2.0 bearer token. Include in Authorization header: "Authorization: Bearer <access_token>"
+Required OAuth scope: detects:read
+
+Request Parameters:
+- limit (integer, optional): Max detection IDs to return. Default 100, max 9999.
+- offset (integer, optional): Starting position for pagination.
+- filter (string, optional): FQL query, e.g., status:'new'+severity_name:'High'
+- sort (string, optional): Sort field, e.g., last_behavior.desc or created_timestamp.asc
+- q (string, optional): Full-text search across detection fields.
+
+Response (200 OK): Returns meta object (query_time, pagination with offset/limit/total) and resources array (list of detection IDs) and errors array (empty on success).
+
+Error Codes:
+- 400 Bad Request: Invalid FQL expression in filter parameter
+- 401 Unauthorized: Access token missing, expired, or invalid
+- 403 Forbidden: API client missing detects:read scope
+- 429 Too Many Requests: Rate limit exceeded, wait before retrying
+- 500 Internal Server Error: Unexpected error, retry or contact support
+
+Pagination: Increment offset by limit value for next page. Use meta.pagination.total to determine total results.
+
+Related Endpoints:
+- GET /detects/entities/summaries/GET/v1 — Get Detection Details
+- PATCH /detects/entities/detects/v2 — Update Detection Status
+
+---
+WRITING SAMPLE 4 — PROCESS GUIDE: "How to Build a Technical Writing Portfolio Site"
+Type: Process / How-to guide
+Audience: Technical writers building a portfolio
+Tools covered: Python, MkDocs, Material theme, GitHub, GitHub Pages, VS Code, Git
+
+The 10-step process:
+Step 1: Install Python from python3.org; verify with "python3 --version"
+Step 2: Install MkDocs and Material theme: "pip3 install mkdocs mkdocs-material"; verify with "mkdocs --version"
+Step 3: Create project with "mkdocs new my-portfolio"; change into folder; preview with "mkdocs serve" at localhost:8000
+Step 4: Configure mkdocs.yml — set site_name, theme (material), palette (white + green accent), fonts (Inter + Roboto Mono), navigation features
+Step 5: Add custom CSS in docs/stylesheets/extra.css — sets CSS variables for green accent color (#4caf7d), header, tabs, typography
+Step 6: Create pages — index.md (home), about.md, portfolio.md, work-with-me.md, docs/samples/ for writing samples
+Step 7: Add .gitignore with "site/" to prevent committing the built HTML folder
+Step 8: Set up Git — "git init", configure name/email, create GitHub repo, "git remote add origin", "git add .", "git commit", "git push -u origin main"
+Step 9: Deploy with "mkdocs gh-deploy"; enable GitHub Pages in repo Settings > Pages > gh-pages branch
+Step 10: Update site: "git add . && git commit -m '...' && git push origin main && mkdocs gh-deploy"
+
+Troubleshooting:
+- "code ." not working: Install VS Code Shell Command via Cmd+Shift+P
+- GitHub password rejected: Use Personal Access Token from github.com/settings/tokens with repo scope
+- site/ folder committed: Add to .gitignore, then "git rm -r --cached site/"
+- Bullet points as plain text: Add blank line before bullet list in Markdown
+- MkDocs 2.0 warning: Safe to ignore with current Material theme
+
+---
+ABOUT EVANGELINE PHILIP:
+- Senior Technical Writer specializing in cybersecurity and docs-as-code
+- Portfolio site: https://eva-philip.github.io/my-portfolio/
+- Specialties: API References, Integration Guides, KB Articles, Developer Docs
+- Impact: ~40% fewer support tickets, 50% faster documentation, 15+ product modules improved, ~28% fewer escalations
+- Tools: Markdown, Git, GitHub, MkDocs, VS Code, Confluence, Jira, OpenAPI, Postman, Swagger, Writer AI, Claude
+- Looking for Senior Technical Writer roles in cybersecurity or developer-focused SaaS
+- LinkedIn: https://www.linkedin.com/in/evangeline-philip/
+`;
+
+// ── YOUR API KEY ─────────────────────────────────────────────────────────────
+// This placeholder is replaced automatically at deploy time by GitHub Actions.
+// Never paste your real key here directly.
+const PREFILLED_KEY = 'sk-ant-PASTE-YOUR-KEY-HERE';
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let apiKey = PREFILLED_KEY;
+let isLoading = false;
+const messages = [];
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('key-toggle-btn').style.display = 'none';
+});
+
+// ── API KEY ──────────────────────────────────────────────────────────────────
+function toggleApiPanel() {
+  const panel = document.getElementById('api-key-panel');
+  panel.classList.toggle('open');
+}
+
+function saveApiKey() {
+  const input = document.getElementById('api-key-input').value.trim();
+  if (!input.startsWith('sk-ant-')) {
+    alert('Please enter a valid Anthropic API key starting with sk-ant-');
+    return;
+  }
+  apiKey = input;
+  sessionStorage.setItem('eva_widget_key', input);
+  document.getElementById('key-toggle-btn').textContent = '✓ Key Set';
+  document.getElementById('api-key-panel').classList.remove('open');
+}
+
+// ── CHIP CLICK ───────────────────────────────────────────────────────────────
+function useChip(btn) {
+  const text = btn.textContent;
+  document.getElementById('user-input').value = text;
+  autoResize(document.getElementById('user-input'));
+  sendMessage();
+}
+
+// ── TEXTAREA AUTO RESIZE ─────────────────────────────────────────────────────
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+// ── KEYBOARD ─────────────────────────────────────────────────────────────────
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+// ── RENDER HELPERS ───────────────────────────────────────────────────────────
+function clearEmpty() {
+  const el = document.getElementById('empty-state');
+  if (el) el.remove();
+}
+
+function appendMessage(role, content, isError = false) {
+  const win = document.getElementById('chat-window');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg ' + role + (isError ? ' msg-error' : '');
+
+  const avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.textContent = role === 'user' ? 'You' : '✦';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+
+  // Simple markdown-ish rendering
+  bubble.innerHTML = formatContent(content);
+
+  wrap.appendChild(avatar);
+  wrap.appendChild(bubble);
+  win.appendChild(wrap);
+  win.scrollTop = win.scrollHeight;
+  return wrap;
+}
+
+function formatContent(text) {
+  return text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    .replace(/^/, '<p>').replace(/$/, '</p>')
+    // inline source tags like [KB Article] or [Integration Guide]
+    .replace(/\[(KB Article|Integration Guide|API Reference|Process Guide)\]/g,
+      '<span class="source-tag">$1</span>');
+}
+
+function showTyping() {
+  const win = document.getElementById('chat-window');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg assistant typing-indicator';
+  wrap.id = 'typing-indicator';
+
+  const avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.textContent = '✦';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+
+  wrap.appendChild(avatar);
+  wrap.appendChild(bubble);
+  win.appendChild(wrap);
+  win.scrollTop = win.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+// ── SEND ─────────────────────────────────────────────────────────────────────
+async function sendMessage() {
+  if (isLoading) return;
+
+  const input = document.getElementById('user-input');
+  const question = input.value.trim();
+  if (!question) return;
+
+  if (!apiKey) {
+    document.getElementById('api-key-panel').classList.add('open');
+    document.getElementById('api-key-input').focus();
+    alert('Please enter your Anthropic API key first using the ⚙ API Key button.');
+    return;
+  }
+
+  clearEmpty();
+  isLoading = true;
+  document.getElementById('send-btn').disabled = true;
+
+  // show user message
+  appendMessage('user', question);
+  input.value = '';
+  input.style.height = 'auto';
+
+  // add to history
+  messages.push({ role: 'user', content: question });
+
+  showTyping();
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-calls': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: PORTFOLIO_CONTEXT,
+        messages: messages
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err?.error?.message || `API error ${response.status}`);
+    }
+
+    const data = await response.json();
+    const reply = data.content?.[0]?.text || 'Sorry, I couldn\'t generate a response.';
+
+    removeTyping();
+    appendMessage('assistant', reply);
+    messages.push({ role: 'assistant', content: reply });
+
+  } catch (err) {
+    removeTyping();
+    let errMsg = '⚠ ' + err.message;
+    if (err.message.includes('401')) errMsg = '⚠ Invalid API key. Please check your key and try again.';
+    if (err.message.includes('429')) errMsg = '⚠ Rate limit reached. Please wait a moment and try again.';
+    appendMessage('assistant', errMsg, true);
+  }
+
+  isLoading = false;
+  document.getElementById('send-btn').disabled = false;
+  input.focus();
+}
+</script>
+</body>
+</html>
