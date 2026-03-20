@@ -142,7 +142,7 @@
      ============================================================ */
   .hero {
     text-align: center;                                          /* Center all text */
-    padding: 4rem 2rem;                                          /* Generous internal spacing */
+    padding: 2rem 2rem;                                          /* Generous internal spacing */
     background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%); /* Subtle green-to-white gradient */
     border-radius: 12px;                                         /* Rounded corners */
     margin-bottom: 2rem;                                         /* Space below the hero section */
@@ -377,4 +377,95 @@
    ============================================================ */
 .md-sidebar--secondary {
   display: none !important;
+}
+/* ============================================================
+   ISSUE BLOCKS (Troubleshooting)
+   Custom admonition type for problem/resolution pairs.
+   ============================================================ */
+.md-typeset .admonition.issue,
+.md-typeset details.issue {
+  border-color: #666;
+  background-color: #f7f7f7;
+}
+
+.md-typeset .admonition.issue > .admonition-title,
+.md-typeset details.issue > summary {
+  background-color: #e4e4e4;
+  color: #1a1a1a;
+}
+
+.md-typeset .admonition.issue > .admonition-title::before,
+.md-typeset details.issue > summary::before {
+  background-color: #666 !important;
+  mask-image: var(--md-admonition-icon--note);
+  -webkit-mask-image: var(--md-admonition-icon--note);
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] .md-typeset .admonition.issue,
+[data-md-color-scheme="slate"] .md-typeset details.issue {
+  background-color: #1e1e1e;
+  border-color: #888;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.issue > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.issue > summary {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: #d0ead9;
+  color: #1a5c3a;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: #4caf7d !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: #d0ead9;
+  color: #1a5c3a;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: #4caf7d !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary {
+  background-color: #2e5e3e;
+  color: #ffffff;
 }

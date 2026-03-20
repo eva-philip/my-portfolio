@@ -1,10 +1,11 @@
-# How to Build a Technical Writing Portfolio Site
+# How to build a technical writing portfolio site
 
-| | |
-|---|---|
-| **Author** | Evangeline Philip |
-| **Audience** | Technical writers building a portfolio site |
-| **Estimated time** | 1 to 2 hours |
+
+**Author:** Evangeline Philip
+
+**Audience:** Technical writers building a portfolio site
+
+**Estimated time:** 1 to 2 hours
 
 This guide walks you through building a professional technical writing portfolio site using MkDocs, the Material theme, and GitHub Pages. By the end, you will have a live site at `https://your-username.github.io/my-portfolio/`.
 
@@ -353,24 +354,6 @@ This is the first page visitors see. Keep it concise: a brief introduction, your
 
 Your background, skills, and experience.
 
-!!! note "Markdown tip"
-    Always add a blank line before bullet point lists. Without it, bullets render as plain text.
-
-    Correct:
-    ```markdown
-    ## Skills
-
-    - Skill one
-    - Skill two
-    ```
-
-    Incorrect:
-    ```markdown
-    ## Skills
-    - Skill one
-    - Skill two
-    ```
-
 #### Portfolio page (docs/portfolio.md)
 
 An overview page with a short description of each writing sample and a link to each one.
@@ -604,19 +587,19 @@ git push origin main
 
 ## Troubleshooting
 
-Click on a question to expand the answer.
+Expand an issue to see the resolution.
 
-??? question "`code .` is not working in the terminal"
+??? issue "`code .` is not working in the terminal"
     The VS Code command line tool is not installed.
 
     Open VS Code, press `Cmd + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows), type "Shell Command", and select **Install 'code' command in PATH**. Then try again.
 
-??? question "GitHub is rejecting my password"
+??? issue "GitHub is rejecting my password"
     GitHub no longer accepts your account password for terminal authentication.
 
     Generate a [Personal Access Token](https://github.com/settings/tokens). Choose Classic token, select the `repo` and `workflow` scopes, and set an expiration. Use the token as your password when Git prompts you.
 
-??? question "GitHub blocked my push because of a detected secret"
+??? issue "GitHub blocked my push because of a detected secret"
     GitHub scans commits for API keys and credentials. If one is detected, the push is blocked.
 
     Remove the secret from the file, then run:
@@ -628,7 +611,7 @@ Click on a question to expand the answer.
     ```
     If the secret appears in older commits, use `git filter-repo` to scrub the full history, then force push.
 
-??? question "The `site/` folder is being committed to GitHub"
+??? issue "The `site/` folder is being committed to GitHub"
     You either skipped Step 7 or ran `git add .` before creating the `.gitignore` file.
 
     Make sure `.gitignore` contains `site/`, then run:
@@ -639,7 +622,7 @@ Click on a question to expand the answer.
     git push origin main
     ```
 
-??? question "The GitHub Actions workflow is failing"
+??? issue "The GitHub Actions workflow is failing"
     Click on the failed run in the **Actions** tab, then click the **deploy** job to expand the steps. Find the step with the red cross and read the error message.
 
     | Cause | Resolution |
@@ -648,15 +631,15 @@ Click on a question to expand the answer.
     | Personal Access Token missing the `workflow` scope | Edit your token at [github.com/settings/tokens](https://github.com/settings/tokens) and enable the `workflow` scope |
     | MkDocs install failing | Check that `mkdocs` and `mkdocs-material` are spelled correctly in the workflow file |
 
-??? question "Bullet points are rendering as plain text"
+??? issue "Bullet points are rendering as plain text"
     You are missing a blank line before your bullet list.
 
     In Markdown, always add a blank line between a heading or paragraph and the bullet points below it.
 
-??? question "I am seeing a warning about MkDocs 2.0"
+??? issue "I am seeing a warning about MkDocs 2.0"
     This warning appears when using the Material theme with MkDocs 1.6.x. It refers to a future version and does not affect your current site. It is safe to ignore.
 
-??? question "My page is not appearing in the navigation"
+??? issue "My page is not appearing in the navigation"
     Every page in your `docs/` folder must be listed in the `nav` section of `mkdocs.yml`.
 
     Open `mkdocs.yml` and add the missing page to the `nav` section. The path is relative to the `docs/` folder.

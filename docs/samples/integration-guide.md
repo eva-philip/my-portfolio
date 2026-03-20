@@ -1,6 +1,6 @@
 # Integrating Falcon with Splunk SIEM
 
-| | |
+| About this guide | |
 |---|---|
 | **Article type** | Integration guide |
 | **Audience** | Security engineers and SOC analysts |

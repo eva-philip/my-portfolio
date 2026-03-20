@@ -1,8 +1,6 @@
 # Ask Claude About My Work
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Sora:wght@300;400;500;600;700&display=swap');
-
   :root {
     --green: #4caf7d;
     --green-dark: #2e7d52;
@@ -18,14 +16,7 @@
     --sans: 'Sora', sans-serif;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: var(--sans);
-    background: transparent;
-    color: var(--ink);
-    padding: 0;
-  }
+  * { box-sizing: border-box; }
 
   /* ── WIDGET CONTAINER ── */
   #eva-search-widget {
@@ -36,7 +27,6 @@
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     max-width: 760px;
     margin: 2rem auto;
-    font-family: var(--sans);
   }
 
   /* ── HEADER ── */
@@ -82,7 +72,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 5px 10px;
-    font-family: var(--mono);
     font-size: 0.7rem;
     color: var(--ink-muted);
     cursor: pointer;
@@ -156,7 +145,6 @@
     border: 1.5px solid var(--border);
     border-radius: 8px;
     padding: 10px 14px;
-    font-family: var(--mono);
     font-size: 0.78rem;
     color: var(--ink);
     outline: none;
@@ -176,7 +164,6 @@
     border: none;
     border-radius: 8px;
     padding: 10px 18px;
-    font-family: var(--sans);
     font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
@@ -260,7 +247,6 @@
   .empty-state svg { opacity: 0.25; }
   .empty-state p { font-size: 0.82rem; font-weight: 300; }
 
-  /* messages */
   .msg {
     display: flex;
     gap: 10px;
@@ -290,7 +276,6 @@
   .msg.user .msg-avatar {
     background: var(--ink);
     color: white;
-    font-family: var(--mono);
   }
 
   .msg.assistant .msg-avatar {
@@ -321,7 +306,6 @@
 
   .msg-bubble strong { font-weight: 600; }
   .msg-bubble code {
-    font-family: var(--mono);
     font-size: 0.78rem;
     background: rgba(76,175,125,0.15);
     padding: 1px 5px;
@@ -331,11 +315,9 @@
     background: rgba(255,255,255,0.15);
   }
 
-  /* source tag */
   .source-tag {
     display: inline-block;
     margin-top: 8px;
-    font-family: var(--mono);
     font-size: 0.67rem;
     color: var(--green-dark);
     background: rgba(76,175,125,0.1);
@@ -344,7 +326,6 @@
     border-radius: 4px;
   }
 
-  /* typing indicator */
   .typing-indicator .msg-bubble {
     padding: 12px 16px;
   }
@@ -370,7 +351,6 @@
     30% { transform: translateY(-6px); }
   }
 
-  /* error */
   .msg-error .msg-bubble {
     background: #fff5f5;
     border-color: #fecaca;
@@ -392,7 +372,6 @@
     border: 1.5px solid var(--border);
     border-radius: 8px;
     padding: 10px 14px;
-    font-family: var(--sans);
     font-size: 0.84rem;
     color: var(--ink);
     outline: none;
@@ -437,7 +416,6 @@
     padding: 8px 24px 10px;
     border-top: 1px solid var(--border);
     background: var(--surface-alt);
-    font-family: var(--mono);
     font-size: 0.67rem;
     color: #bbb;
     text-align: center;
@@ -453,11 +431,8 @@
     .input-row { padding: 12px 16px 14px; }
     .suggestions { padding: 12px 16px 8px; }
     .msg-bubble { max-width: 88%; font-size: 0.82rem; }
-    .api-key-panel { padding: 12px 16px; flex-wrap: wrap; }
   }
 </style>
-</head>
-<body>
 
 <div id="eva-search-widget">
 
@@ -481,7 +456,7 @@
   <div class="onboarding" id="onboarding">
     <div class="onboarding-title">Try this interactive demo — bring your own Anthropic API key</div>
     <div class="onboarding-desc">
-      This widget uses the <a href="https://www.anthropic.com/api" target="_blank">Anthropic Claude API</a> to answer questions about my writing samples. 
+      This widget uses the <a href="https://www.anthropic.com/api" target="_blank">Anthropic Claude API</a> to answer questions about my writing samples.
       You'll need a free API key from <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> — new accounts include free credits.
     </div>
     <div class="onboarding-privacy">
@@ -489,11 +464,11 @@
       <p>Your key is used only in your browser for this session. It is never sent to or stored on any server other than Anthropic's.</p>
     </div>
     <div class="onboarding-input-row">
-      <input 
-        type="password" 
-        id="api-key-input" 
+      <input
+        type="password"
+        id="api-key-input"
         class="onboarding-input"
-        placeholder="sk-ant-api03-…" 
+        placeholder="sk-ant-api03-…"
         autocomplete="off"
         onkeydown="if(event.key==='Enter') saveApiKey()"
       />
@@ -548,7 +523,6 @@
 </div>
 
 <script>
-// ── KNOWLEDGE BASE ───────────────────────────────────────────────────────────
 const PORTFOLIO_CONTEXT = `
 You are an AI assistant embedded in Evangeline Philip's professional portfolio website.
 Evangeline is a Senior Technical Writer specializing in cybersecurity and docs-as-code.
@@ -603,11 +577,8 @@ Requirements:
 - Network access: Splunk instance must reach api.crowdstrike.com on port 443
 
 Step 1: Generate Falcon API Credentials — go to Support and Resources > API Clients and Keys > Add new API client; enable Event Streams Read, Detections Read, Hosts Read; copy Client ID and Client Secret (only shown once)
-
 Step 2: Install the CrowdStrike Add-on for Splunk — search Splunkbase for "CrowdStrike Falcon Event Streams" and install; restart Splunk
-
 Step 3: Configure the Integration — in Splunk, go to Apps > CrowdStrike Falcon Event Streams > Configuration > Add Account; enter Client ID, Client Secret, Base URL: https://api.crowdstrike.com; create data input with index "crowdstrike" and desired event types
-
 Step 4: Verify the Integration — run: index="crowdstrike" | head 10; if no data after 15 minutes check: index=_internal source=*crowdstrike* error
 
 Troubleshooting:
@@ -686,12 +657,10 @@ ABOUT EVANGELINE PHILIP:
 - LinkedIn: https://www.linkedin.com/in/evangeline-philip/
 `;
 
-// ── STATE ────────────────────────────────────────────────────────────────────
 let apiKey = '';
 let isLoading = false;
 const messages = [];
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   const saved = sessionStorage.getItem('eva_widget_key');
   if (saved) {
@@ -704,7 +673,6 @@ function hideOnboarding() {
   document.getElementById('onboarding').style.display = 'none';
 }
 
-// ── API KEY ──────────────────────────────────────────────────────────────────
 function toggleApiPanel() {}
 
 function saveApiKey() {
@@ -721,7 +689,6 @@ function saveApiKey() {
   document.getElementById('user-input').focus();
 }
 
-// ── CHIP CLICK ───────────────────────────────────────────────────────────────
 function useChip(btn) {
   const text = btn.textContent;
   document.getElementById('user-input').value = text;
@@ -729,13 +696,11 @@ function useChip(btn) {
   sendMessage();
 }
 
-// ── TEXTAREA AUTO RESIZE ─────────────────────────────────────────────────────
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
 }
 
-// ── KEYBOARD ─────────────────────────────────────────────────────────────────
 function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
@@ -743,7 +708,6 @@ function handleKey(e) {
   }
 }
 
-// ── RENDER HELPERS ───────────────────────────────────────────────────────────
 function clearEmpty() {
   const el = document.getElementById('empty-state');
   if (el) el.remove();
@@ -753,17 +717,12 @@ function appendMessage(role, content, isError = false) {
   const win = document.getElementById('chat-window');
   const wrap = document.createElement('div');
   wrap.className = 'msg ' + role + (isError ? ' msg-error' : '');
-
   const avatar = document.createElement('div');
   avatar.className = 'msg-avatar';
   avatar.textContent = role === 'user' ? 'You' : '✦';
-
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
-
-  // Simple markdown-ish rendering
   bubble.innerHTML = formatContent(content);
-
   wrap.appendChild(avatar);
   wrap.appendChild(bubble);
   win.appendChild(wrap);
@@ -779,7 +738,6 @@ function formatContent(text) {
     .replace(/\n\n/g, '</p><p>')
     .replace(/\n/g, '<br>')
     .replace(/^/, '<p>').replace(/$/, '</p>')
-    // inline source tags like [KB Article] or [Integration Guide]
     .replace(/\[(KB Article|Integration Guide|API Reference|Process Guide)\]/g,
       '<span class="source-tag">$1</span>');
 }
@@ -789,15 +747,12 @@ function showTyping() {
   const wrap = document.createElement('div');
   wrap.className = 'msg assistant typing-indicator';
   wrap.id = 'typing-indicator';
-
   const avatar = document.createElement('div');
   avatar.className = 'msg-avatar';
   avatar.textContent = '✦';
-
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
   bubble.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-
   wrap.appendChild(avatar);
   wrap.appendChild(bubble);
   win.appendChild(wrap);
@@ -809,34 +764,24 @@ function removeTyping() {
   if (el) el.remove();
 }
 
-// ── SEND ─────────────────────────────────────────────────────────────────────
 async function sendMessage() {
   if (isLoading) return;
-
   const input = document.getElementById('user-input');
   const question = input.value.trim();
   if (!question) return;
-
   if (!apiKey) {
     document.getElementById('onboarding').style.display = 'block';
     document.getElementById('api-key-input').focus();
     return;
   }
-
   clearEmpty();
   isLoading = true;
   document.getElementById('send-btn').disabled = true;
-
-  // show user message
   appendMessage('user', question);
   input.value = '';
   input.style.height = 'auto';
-
-  // add to history
   messages.push({ role: 'user', content: question });
-
   showTyping();
-
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -853,19 +798,15 @@ async function sendMessage() {
         messages: messages
       })
     });
-
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
       throw new Error(err?.error?.message || `API error ${response.status}`);
     }
-
     const data = await response.json();
-    const reply = data.content?.[0]?.text || 'Sorry, I couldn\'t generate a response.';
-
+    const reply = data.content?.[0]?.text || 'Sorry, I could not generate a response.';
     removeTyping();
     appendMessage('assistant', reply);
     messages.push({ role: 'assistant', content: reply });
-
   } catch (err) {
     removeTyping();
     let errMsg = '⚠ ' + err.message;
@@ -873,7 +814,6 @@ async function sendMessage() {
     if (err.message.includes('429')) errMsg = '⚠ Rate limit reached. Please wait a moment and try again.';
     appendMessage('assistant', errMsg, true);
   }
-
   isLoading = false;
   document.getElementById('send-btn').disabled = false;
   input.focus();

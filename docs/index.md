@@ -16,6 +16,11 @@ documentation that helps developers, engineers, and end users get things done fa
 [View My Portfolio](portfolio.md){ .md-button .md-button--primary }
 [Work With Me](work-with-me.md){ .md-button }
 
+<p style="font-size: 0.78rem; color: #888; margin-top: 1.5rem;">
+This site was designed and built by me from scratch using MkDocs, GitHub Pages, and a little help from Claude.
+<a href="https://github.com/eva-philip/my-portfolio" style="color: #4caf7d;">View source on GitHub →</a>
+</p>
+
 </div>
 
 ---
@@ -86,10 +91,26 @@ documentation that helps developers, engineers, and end users get things done fa
 
 ## Tools and Workflow
 
-`Markdown` `Git` `GitHub` `MkDocs` `VS Code` `Confluence` `Jira` `OpenAPI` `Postman` `Swagger` `Writer AI` `Claude`
+**Authoring and Markup**
+`Markdown` `YAML` `XML` `VS Code` `Paligo`
 
----
+**Docs-as-Code**
+`Git` `GitHub` `Bitbucket` `MkDocs` `ReadTheDocs` `Pandoc`
 
+**API**
+`Postman` `Swagger` `OpenAPI` `Theneo`
+
+**AI Tools**
+`Writer AI` `Claude` `ChatGPT` `Gemini`
+
+**Style Guides**
+`Microsoft Style Guide` `Simplified Technical English (STE)`
+
+**Domains**
+`Cybersecurity` `IAM` `SaaS` `Enterprise Security`
+
+<!-- 
 !!! tip "Open to Opportunities"
     I'm currently looking for my next role as a Senior Technical Writer, ideally in
     cybersecurity or a developer-focused SaaS product. Let's connect on [LinkedIn](https://www.linkedin.com/in/evangeline-philip/).
+-->

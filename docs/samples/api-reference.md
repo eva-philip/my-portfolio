@@ -1,6 +1,6 @@
-# Get Detections
+# Get Detections API reference
 
-| | |
+| About this reference | |
 |---|---|
 | **Article type** | API reference |
 | **Audience** | Developers and security engineers |
