@@ -4,6 +4,7 @@ All notable changes to this portfolio site are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
 ---
+## v1.4.0 — March 2026
 
 ### Added
 - Ask Claude About My Work — an AI-powered portfolio assistant embedded as a dedicated page (`ask.html`)
