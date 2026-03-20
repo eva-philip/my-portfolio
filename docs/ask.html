@@ -95,51 +95,106 @@
   }
   .api-key-toggle:hover { border-color: var(--green); color: var(--green); }
 
-  /* ── API KEY PANEL ── */
-  .api-key-panel {
-    background: var(--surface-alt);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 24px;
-    display: none;
-    gap: 10px;
-    align-items: center;
-  }
-  .api-key-panel.open { display: flex; }
-
-  .api-key-panel label {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    white-space: nowrap;
-  }
-
-  .api-key-panel input {
-    flex: 1;
+  /* ── ONBOARDING SCREEN ── */
+  .onboarding {
+    padding: 28px 28px 24px;
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 7px 12px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .onboarding-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .onboarding-desc {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .onboarding-desc a {
+    color: var(--green);
+    text-decoration: none;
+  }
+  .onboarding-desc a:hover { text-decoration: underline; }
+
+  .onboarding-privacy {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: var(--green-pale);
+    border: 1px solid rgba(76,175,125,0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+
+  .onboarding-privacy svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--green);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .onboarding-privacy p {
+    font-size: 0.73rem;
+    color: var(--green-dark);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .onboarding-input-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .onboarding-input {
+    flex: 1;
+    background: var(--surface-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
     font-family: var(--mono);
     font-size: 0.78rem;
     color: var(--ink);
     outline: none;
-    transition: border-color 0.15s;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
-  .api-key-panel input:focus { border-color: var(--green); }
 
-  .key-save-btn {
+  .onboarding-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-glow);
+  }
+
+  .onboarding-input::placeholder { color: #bbb; }
+
+  .onboarding-btn {
     background: var(--green);
     color: white;
     border: none;
-    border-radius: 6px;
-    padding: 7px 14px;
+    border-radius: 8px;
+    padding: 10px 18px;
     font-family: var(--sans);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.78rem;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.15s;
+    white-space: nowrap;
   }
-  .key-save-btn:hover { background: var(--green-dark); }
+  .onboarding-btn:hover { background: var(--green-dark); }
+
+  .onboarding-error {
+    font-size: 0.72rem;
+    color: #b91c1c;
+    margin-top: 6px;
+    display: none;
+  }
 
   /* ── SUGGESTED CHIPS ── */
   .suggestions {
@@ -423,25 +478,43 @@
       <h3>Ask About Evangeline's Work</h3>
       <p>Powered by Claude · Answers from 4 writing samples</p>
     </div>
-    <button class="api-key-toggle" onclick="toggleApiPanel()" id="key-toggle-btn">⚙ API Key</button>
+    <button class="api-key-toggle" onclick="toggleApiPanel()" id="key-toggle-btn" style="display:none">⚙ API Key</button>
   </div>
 
-  <!-- API KEY PANEL -->
-  <div class="api-key-panel" id="api-key-panel">
-    <label>sk-ant-…</label>
-    <input type="password" id="api-key-input" placeholder="Paste your Anthropic API key here" autocomplete="off"/>
-    <button class="key-save-btn" onclick="saveApiKey()">Save</button>
+  <!-- ONBOARDING SCREEN -->
+  <div class="onboarding" id="onboarding">
+    <div class="onboarding-title">Try this interactive demo — bring your own Anthropic API key</div>
+    <div class="onboarding-desc">
+      This widget uses the <a href="https://www.anthropic.com/api" target="_blank">Anthropic Claude API</a> to answer questions about my writing samples. 
+      You'll need a free API key from <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> — new accounts include free credits.
+    </div>
+    <div class="onboarding-privacy">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/></svg>
+      <p>Your key is used only in your browser for this session. It is never sent to or stored on any server other than Anthropic's.</p>
+    </div>
+    <div class="onboarding-input-row">
+      <input 
+        type="password" 
+        id="api-key-input" 
+        class="onboarding-input"
+        placeholder="sk-ant-api03-…" 
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter') saveApiKey()"
+      />
+      <button class="onboarding-btn" onclick="saveApiKey()">Let's go →</button>
+    </div>
+    <div class="onboarding-error" id="onboarding-error">Please enter a valid Anthropic API key starting with sk-ant-</div>
   </div>
 
   <!-- SUGGESTED QUESTIONS -->
   <div class="suggestions">
     <div class="suggestions-label">Try asking →</div>
     <button class="chip" onclick="useChip(this)">What types of docs does Evangeline write?</button>
-    <button class="chip" onclick="useChip(this)">How does the Falcon–Splunk integration work?</button>
-    <button class="chip" onclick="useChip(this)">What's the API authentication method used?</button>
-    <button class="chip" onclick="useChip(this)">How do you fix a Falcon sensor not reporting?</button>
-    <button class="chip" onclick="useChip(this)">What tools and tech does Evangeline use?</button>
+    <button class="chip" onclick="useChip(this)">What tools and tech does she use?</button>
     <button class="chip" onclick="useChip(this)">Walk me through the portfolio site build process</button>
+    <button class="chip" onclick="useChip(this)">What impact has Evangeline made in past roles?</button>
+    <button class="chip" onclick="useChip(this)">How does she approach API documentation?</button>
+    <button class="chip" onclick="useChip(this)">What makes Evangeline's docs reduce support tickets?</button>
   </div>
 
   <!-- CHAT WINDOW -->
@@ -617,37 +690,39 @@ ABOUT EVANGELINE PHILIP:
 - LinkedIn: https://www.linkedin.com/in/evangeline-philip/
 `;
 
-// ── YOUR API KEY ─────────────────────────────────────────────────────────────
-// This placeholder is replaced automatically at deploy time by GitHub Actions.
-// Never paste your real key here directly.
-const PREFILLED_KEY = 'sk-ant-PASTE-YOUR-KEY-HERE';
-
 // ── STATE ────────────────────────────────────────────────────────────────────
-let apiKey = PREFILLED_KEY;
+let apiKey = '';
 let isLoading = false;
 const messages = [];
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('key-toggle-btn').style.display = 'none';
+  const saved = sessionStorage.getItem('eva_widget_key');
+  if (saved) {
+    apiKey = saved;
+    hideOnboarding();
+  }
 });
 
-// ── API KEY ──────────────────────────────────────────────────────────────────
-function toggleApiPanel() {
-  const panel = document.getElementById('api-key-panel');
-  panel.classList.toggle('open');
+function hideOnboarding() {
+  document.getElementById('onboarding').style.display = 'none';
 }
+
+// ── API KEY ──────────────────────────────────────────────────────────────────
+function toggleApiPanel() {}
 
 function saveApiKey() {
   const input = document.getElementById('api-key-input').value.trim();
+  const errEl = document.getElementById('onboarding-error');
   if (!input.startsWith('sk-ant-')) {
-    alert('Please enter a valid Anthropic API key starting with sk-ant-');
+    errEl.style.display = 'block';
     return;
   }
+  errEl.style.display = 'none';
   apiKey = input;
   sessionStorage.setItem('eva_widget_key', input);
-  document.getElementById('key-toggle-btn').textContent = '✓ Key Set';
-  document.getElementById('api-key-panel').classList.remove('open');
+  hideOnboarding();
+  document.getElementById('user-input').focus();
 }
 
 // ── CHIP CLICK ───────────────────────────────────────────────────────────────
@@ -747,9 +822,8 @@ async function sendMessage() {
   if (!question) return;
 
   if (!apiKey) {
-    document.getElementById('api-key-panel').classList.add('open');
+    document.getElementById('onboarding').style.display = 'block';
     document.getElementById('api-key-input').focus();
-    alert('Please enter your Anthropic API key first using the ⚙ API Key button.');
     return;
   }
 
