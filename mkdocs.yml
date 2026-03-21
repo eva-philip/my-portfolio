@@ -1,6 +1,5 @@
 site_name: Evangeline Philip | Senior Technical Writer
-site_description: Portfolio of Evangeline Philip, Senior Technical Writer
-
+site_description: Portfolio of Evangeline Philip, Senior Technical Writer specializing in cybersecurity, API documentation, and docs-as-code workflows.
 theme:
   name: material
   icon:
@@ -53,6 +52,7 @@ nav:
     - KB Article: samples/kb-article.md
     - Integration Guide: samples/integration-guide.md
     - API Reference: samples/api-reference.md
+    - Before & After: samples/before-after.md
   - Work With Me: work-with-me.md
   - Ask Claude About My Work: ask.md
   - Changelog: changelog.md

@@ -55,7 +55,7 @@ This site was designed and built by me from scratch using MkDocs, GitHub Pages, 
 
 </div>
 
----
+<div class="impact-section" markdown>
 
 ## Impact I've Made
 
@@ -87,30 +87,71 @@ This site was designed and built by me from scratch using MkDocs, GitHub Pages, 
 
 </div>
 
----
+</div>
 
-## Tools and Workflow
+<div class="tools-section">
 
-**Authoring and Markup**
-`Markdown` `YAML` `XML` `VS Code` `Paligo`
+<h2>Tools and Workflow</h2>
 
-**Docs-as-Code**
-`Git` `GitHub` `Bitbucket` `MkDocs` `ReadTheDocs` `Pandoc`
+<div class="tools-group">
+  <span class="tools-label">Authoring and Markup</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Markdown</span>
+    <span class="tool-tag">YAML</span>
+    <span class="tool-tag">XML</span>
+    <span class="tool-tag">VS Code</span>
+    <span class="tool-tag">Paligo</span>
+  </div>
+</div>
 
-**API**
-`Postman` `Swagger` `OpenAPI` `Theneo`
+<div class="tools-group">
+  <span class="tools-label">Docs-as-Code</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Git</span>
+    <span class="tool-tag">GitHub</span>
+    <span class="tool-tag">Bitbucket</span>
+    <span class="tool-tag">MkDocs</span>
+    <span class="tool-tag">ReadTheDocs</span>
+    <span class="tool-tag">Pandoc</span>
+  </div>
+</div>
 
-**AI Tools**
-`Writer AI` `Claude` `ChatGPT` `Gemini`
+<div class="tools-group">
+  <span class="tools-label">API</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Postman</span>
+    <span class="tool-tag">Swagger</span>
+    <span class="tool-tag">OpenAPI</span>
+    <span class="tool-tag">Theneo</span>
+  </div>
+</div>
 
-**Style Guides**
-`Microsoft Style Guide` `Simplified Technical English (STE)`
+<div class="tools-group">
+  <span class="tools-label">AI Tools</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Writer AI</span>
+    <span class="tool-tag">Claude</span>
+    <span class="tool-tag">ChatGPT</span>
+    <span class="tool-tag">Gemini</span>
+  </div>
+</div>
 
-**Domains**
-`Cybersecurity` `IAM` `SaaS` `Enterprise Security`
+<div class="tools-group">
+  <span class="tools-label">Style Guides</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Microsoft Style Guide</span>
+    <span class="tool-tag">Simplified Technical English (STE)</span>
+  </div>
+</div>
 
-<!-- 
-!!! tip "Open to Opportunities"
-    I'm currently looking for my next role as a Senior Technical Writer, ideally in
-    cybersecurity or a developer-focused SaaS product. Let's connect on [LinkedIn](https://www.linkedin.com/in/evangeline-philip/).
--->
+<div class="tools-group">
+  <span class="tools-label">Domains</span>
+  <div class="tools-tags">
+    <span class="tool-tag">Cybersecurity</span>
+    <span class="tool-tag">IAM</span>
+    <span class="tool-tag">SaaS</span>
+    <span class="tool-tag">Enterprise Security</span>
+  </div>
+</div>
+
+</div>

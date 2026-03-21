@@ -202,6 +202,7 @@
   background-color: transparent !important;
   color: #4caf7d !important;
   border-color: #4caf7d !important;
+  border-radius: 8px !important;
 }
 
 .md-typeset .md-button--primary:hover,
@@ -283,6 +284,132 @@
 }
 
 /* ============================================================
+   PORTFOLIO GRID CARDS
+   ============================================================ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.portfolio-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s ease;
+  justify-content: space-between;
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-card-header {
+  margin-bottom: 0.25rem;
+}
+
+.portfolio-tag {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.portfolio-card h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.portfolio-card-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
+
+.portfolio-card-desc {
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.portfolio-card a.md-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   IMPACT SECTION
+   ============================================================ */
+.impact-section {
+  background-color: #f0faf4;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.impact-section h2 {
+  margin-top: 0 !important;
+}
+
+/* ============================================================
+   TOOLS SECTION
+   ============================================================ */
+.tools-section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.tools-section h2 {
+  margin-top: 0 !important;
+  color: #1a1a1a;
+}
+
+.tools-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tools-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4caf7d;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 130px;
+  padding-top: 0.3rem;
+}
+
+.tools-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tool-tag {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  padding: 0.2rem 0.6rem;
+  color: #1a1a1a;
+}
+
+/* ============================================================
    MOBILE OPTIMISATION
    ============================================================ */
 @media (max-width: 600px) {
@@ -311,6 +438,15 @@
 
   .header-text h3 {
     font-size: 0.78rem;
+  }
+
+  .tools-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tools-label {
+    min-width: unset;
   }
 }
 
@@ -459,4 +595,42 @@
 
 [data-md-color-scheme="slate"] .header-text p {
   color: #aaaaaa;
+}
+
+/* Portfolio cards */
+[data-md-color-scheme="slate"] .portfolio-card {
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .portfolio-card:hover {
+  box-shadow: 0 4px 16px rgba(76, 175, 125, 0.2);
+}
+
+[data-md-color-scheme="slate"] .portfolio-tag {
+  background-color: #1a2e24;
+  color: #4caf7d;
+}
+
+/* Impact section */
+[data-md-color-scheme="slate"] .impact-section {
+  background-color: #1a2e24;
+}
+
+[data-md-color-scheme="slate"] .impact-section h2 {
+  color: #ffffff;
+}
+
+/* Tools section */
+[data-md-color-scheme="slate"] .tools-section {
+  background-color: #1e1e1e;
+}
+
+[data-md-color-scheme="slate"] .tools-section h2 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .tool-tag {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #cccccc;
 }
