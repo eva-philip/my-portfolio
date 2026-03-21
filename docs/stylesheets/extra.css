@@ -3,381 +3,255 @@
    Overrides MkDocs Material's default color system.
    These variables are used throughout the theme automatically.
    ============================================================ */
-   :root {
-    --md-primary-fg-color: #ffffff;        /* Main header background — set to white */
-    --md-primary-fg-color--light: #ffffff; /* Lighter variant of header background */
-    --md-primary-fg-color--dark: #f5f5f5;  /* Darker variant of header background */
-    --md-primary-bg-color: #1a1a1a;        /* Text color on primary background */
-    --md-accent-fg-color: #4caf7d;         /* Accent color used for links and highlights */
-  }
-  
-  /* ============================================================
-     HEADER BAR
-     The top bar containing the site title and logo.
-     We remove the default shadow and add a green bottom border
-     to give it a clean, minimal look.
-     ============================================================ */
-  .md-header {
-    border-bottom: 2px solid #4caf7d; /* Green underline beneath the header */
-    box-shadow: none;                  /* Remove default drop shadow */
-  }
-  
-  .md-header__title {
-    font-weight: 700;           /* Make the site title bold */
-    letter-spacing: 0.02em;    /* Slightly space out the letters */
-  }
-  
-  /* ============================================================
-     HEADER LOGO ICON
-     Controls the color and size of the Material icon
-     displayed in the top left of the header.
-     ============================================================ */
-  .md-header__button.md-logo svg {
-    fill: #000000; /* Fill the SVG icon with black */
-    width: 40px;   /* Set icon width (default is 24px) */
-    height: 40px;  /* Set icon height (default is 24px) */
-  }
-  
-  /* ============================================================
-     NAVIGATION TABS
-     The row of page links (Home, About, Portfolio, Work With Me)
-     that appears below the header bar.
-     ============================================================ */
-  .md-tabs {
-    background-color: #f9f9f9;       /* Light gray background for the tab bar */
-    border-bottom: 1px solid #e0e0e0; /* Subtle separator line below tabs */
-  }
-  
-  .md-tabs__link {
-    color: #1a1a1a !important; /* Dark text color for all tab links */
-    font-weight: 500;           /* Medium weight for readability */
-  }
-  
-  .md-tabs__link--active {
-    color: #4caf7d !important;         /* Green text for the currently active tab */
-    border-bottom: 2px solid #4caf7d; /* Green underline on the active tab */
-  }
-  
-  /* ============================================================
-     MAIN CONTENT AREA
-     Constrains the maximum width of the page content
-     so it doesn't stretch too wide on large screens.
-     ============================================================ */
-  .md-content {
-    max-width: 860px; /* Limit content width for readability */
-  }
-  
-  /* ============================================================
-     PAGE LAYOUT CENTERING
-     Centers the entire page content horizontally.
-     Without this, MkDocs pushes content to the left
-     because it reserves space for a sidebar by default.
-     ============================================================ */
-  .md-grid {
-    max-width: 1000px; /* Maximum width of the page grid */
-    margin: 0 auto;    /* Auto left/right margins center the grid */
-  }
-  
-  /* ============================================================
-     HEADINGS
-     Styles for H1 and H2 headings across all pages.
-     H1 gets a green underline to match the site accent color.
-     ============================================================ */
-  .md-typeset h1 {
-    font-weight: 800;                  /* Extra bold for page titles */
-    color: #1a1a1a;                    /* Dark color for strong contrast */
-    border-bottom: 2px solid #4caf7d; /* Green underline beneath H1 */
-    padding-bottom: 0.3em;             /* Space between text and underline */
-  }
-  
-  .md-typeset h2 {
-    font-weight: 700;   /* Bold for section headings */
-    color: #1a1a1a;     /* Dark color for strong contrast */
-    margin-top: 2em;    /* Extra space above H2 to separate sections */
-  }
-  
-  /* ============================================================
-     LINKS
-     Styles for all hyperlinks in the page content.
-     Uses green to match the site accent color.
-     ============================================================ */
-  .md-typeset a {
-    color: #4caf7d; /* Green for all links */
-  }
-  
-  .md-typeset a:hover {
-    color: #2e7d52; /* Darker green when hovering over a link */
-  }
-  
-  /* ============================================================
-     TABLES
-     Styles for all Markdown tables across the site.
-     Adds a light border and green-tinted header row.
-     ============================================================ */
-  .md-typeset table {
-    border: 1px solid #e0e0e0; /* Light gray border around the table */
-    border-radius: 4px;         /* Slightly rounded corners */
-  }
-  
-  .md-typeset thead {
-    background-color: #f0faf4; /* Light green tint for the header row */
-  }
-  
-  /* ============================================================
-     CODE BLOCKS
-     Styles for inline code and code snippets.
-     Uses a light green background to match the site palette.
-     ============================================================ */
-  .md-typeset code {
-    background-color: #f0faf4; /* Light green tint background for code */
-    color: #1a1a1a;             /* Dark text for readability */
-    border-radius: 3px;         /* Slightly rounded corners */
-  }
-  
-  /* ============================================================
-     HERO SECTION
-     The large introductory banner on the home page.
-     Uses a soft green gradient background with centered text
-     and a rounded card-like appearance.
-     ============================================================ */
-  .hero {
-    text-align: center;                                          /* Center all text */
-    padding: 2rem 2rem;                                          /* Generous internal spacing */
-    background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%); /* Subtle green-to-white gradient */
-    border-radius: 12px;                                         /* Rounded corners */
-    margin-bottom: 2rem;                                         /* Space below the hero section */
-    border: 1px solid #d0ead9;                                   /* Soft green border */
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem !important;    /* Large title size */
-    border-bottom: none !important;  /* Remove the default H1 green underline inside hero */
-    margin-bottom: 0.5rem !important; /* Tighter spacing below the title */
-  }
-  
-  .hero h3 {
-    color: #4caf7d;        /* Green subtitle text */
-    font-weight: 500;      /* Medium weight */
-    margin-bottom: 1.5rem; /* Space below subtitle */
-  }
-  
-  .hero p {
-    font-size: 1.1rem;              /* Slightly larger body text */
-    color: #444;                    /* Softer dark gray instead of pure black */
-    max-width: 600px;               /* Limit paragraph width for readability */
-    margin: 0 auto 2rem auto;       /* Center the paragraph and add space below */
-  }
-  
-  /* ============================================================
-     CARDS GRID
-     Styles for the grid of cards on the home page
-     (What I Write, Impact sections).
-     Cards get a border and a hover effect with a green glow.
-     ============================================================ */
-  .md-typeset .grid.cards > ul > li,
-  .md-typeset .grid.cards > ol > li {
-    border: 1px solid #e0e0e0; /* Light gray border around each card */
-    border-radius: 8px;         /* Rounded corners */
-    padding: 1.5rem;            /* Internal spacing inside the card */
-    transition: box-shadow 0.2s ease, border-color 0.2s ease; /* Smooth hover animation */
-  }
-  
-  .md-typeset .grid.cards > ul > li:hover,
-  .md-typeset .grid.cards > ol > li:hover {
-    box-shadow: 0 4px 12px rgba(76, 175, 125, 0.15); /* Soft green glow on hover */
-    border-color: #4caf7d;                            /* Green border on hover */
-  }
-  
-  /* ============================================================
-     CARD ICONS
-     Controls the size and alignment of Material icons
-     used inside the cards grid on the home page.
-     ============================================================ */
-  .lg {
-    font-size: 2rem !important; /* Large icon size inside cards */
-  }
-  
-  .middle {
-    vertical-align: middle; /* Vertically align icon with adjacent text */
-  }
-  
-  /* ============================================================
-     BUTTONS
-     Both the primary (filled) and secondary (outlined) buttons
-     are styled to use the green accent color consistently.
-     On hover, both buttons fill with green and turn text white.
-     ============================================================ */
-  .md-typeset .md-button--primary,
-  .md-typeset .md-button {
-    background-color: transparent !important; /* No fill by default — outlined style */
-    color: #4caf7d !important;                /* Green text */
-    border-color: #4caf7d !important;         /* Green border */
-  }
-  
-  .md-typeset .md-button--primary:hover,
-  .md-typeset .md-button:hover {
-    background-color: #4caf7d !important; /* Fill with green on hover */
-    color: white !important;              /* White text on hover */
-    border-color: #4caf7d !important;     /* Keep green border on hover */
-  }
-  
-  /* Fix for anchor-tag buttons where color inheritance breaks */
-  .md-typeset a.md-button--primary {
-    color: #4caf7d !important; /* Ensure green text on primary button links */
-  }
-  
-  .md-typeset a.md-button--primary:hover {
-    color: white !important; /* White text when hovering primary button links */
-  }
-  
-  /* ============================================================
-     OPEN TO OPPORTUNITIES BANNER
-     The green tip box at the bottom of the home page
-     that signals availability for new roles.
-     Overrides the default MkDocs blue tip admonition style.
-     ============================================================ */
-  .md-typeset .admonition.tip {
-    border-color: #4caf7d;     /* Green left border on the banner */
-    background-color: #f0faf4; /* Light green background */
-  }
-  
-  .md-typeset .admonition.tip .admonition-title {
-    background-color: #d0ead9; /* Slightly darker green for the title bar */
-    color: #1a1a1a;             /* Dark text for readability */
-  }
-  /* ============================================================
-   DARK MODE OVERRIDES
-   These rules only apply when the user switches to dark mode.
-   The [data-md-color-scheme="slate"] selector targets the
-   dark mode theme set in mkdocs.yml.
-   ============================================================ */
-
-/* Hero section — softer dark background instead of light green */
-[data-md-color-scheme="slate"] .hero {
-  background: linear-gradient(135deg, #1a2e24 0%, #1e1e1e 100%);
-  border-color: #2e5e3e;
+:root {
+  --md-primary-fg-color: #ffffff;        /* Main header background — set to white */
+  --md-primary-fg-color--light: #ffffff; /* Lighter variant of header background */
+  --md-primary-fg-color--dark: #f5f5f5;  /* Darker variant of header background */
+  --md-primary-bg-color: #1a1a1a;        /* Text color on primary background */
+  --md-accent-fg-color: #4caf7d;         /* Accent color used for links and highlights */
 }
 
-[data-md-color-scheme="slate"] .hero h1 {
-  color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .hero h3 {
-  color: #4caf7d;
-}
-
-[data-md-color-scheme="slate"] .hero p {
-  color: #aaaaaa;
-}
-
-/* Tools tags — dark background with green text */
-[data-md-color-scheme="slate"] .md-typeset code {
-  background-color: #1a2e24;
-  color: #4caf7d;
-}
-
-/* Open to Opportunities banner — better contrast in dark mode */
-[data-md-color-scheme="slate"] .md-typeset .admonition.tip {
-  background-color: #1a2e24;
-  border-color: #4caf7d;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.tip .admonition-title {
-  background-color: #2e5e3e;
-  color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.tip p {
-  color: #cccccc;
-}
-/* 1. Logo icon — white in dark mode */
-[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
-  fill: #ffffff;
-}
-
-/* 2. Headings — white in dark mode */
-[data-md-color-scheme="slate"] .md-typeset h1,
-[data-md-color-scheme="slate"] .md-typeset h2,
-[data-md-color-scheme="slate"] .md-typeset h3 {
-  color: #ffffff;
-}
-
-/* 3. Cards — dark green tinted background with green border */
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li {
-  background-color: #1a2e24;
-  border-color: #2e5e3e;
-  color: #cccccc;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
-  border-color: #4caf7d;
-  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.2);
-}
-
-/* 4. Table headers — dark background with readable text */
-[data-md-color-scheme="slate"] .md-typeset thead {
-  background-color: #1a2e24;
-  color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .md-typeset thead th {
-  color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .md-typeset table {
-  border-color: #2e5e3e;
-}
-
-[data-md-color-scheme="slate"] .md-typeset td {
-  color: #cccccc;
-}
-
-/* 5. Standardize all headings across site in dark mode */
-[data-md-color-scheme="slate"] .md-typeset h1 {
-  color: #ffffff;
-  border-bottom-color: #4caf7d;
-}
-
-[data-md-color-scheme="slate"] .md-typeset h2,
-[data-md-color-scheme="slate"] .md-typeset h3,
-[data-md-color-scheme="slate"] .md-typeset h4 {
-  color: #ffffff;
-}
-/* Nav tabs — visible in dark mode */
-[data-md-color-scheme="slate"] .md-tabs {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #2e5e3e;
-}
-
-[data-md-color-scheme="slate"] .md-tabs__link {
-  color: #ffffff !important;
-}
-
-[data-md-color-scheme="slate"] .md-tabs__link--active {
-  color: #4caf7d !important;
-  border-bottom: 2px solid #4caf7d;
-}
 /* ============================================================
-   FIX CARD ICONS — small and green
+   HEADER BAR
+   The top bar containing the site title and logo.
+   We remove the default shadow and add a green bottom border
+   to give it a clean, minimal look.
    ============================================================ */
-   .md-typeset .grid.cards .twemoji {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 1rem !important;
-  }
-  
-  .md-typeset .grid.cards .twemoji svg {
-    fill: #4caf7d !important;
-  }
-  /* ============================================================
-   HIDE RIGHT TABLE OF CONTENTS
-   Removes the TOC on the right side across all pages.
-   ============================================================ */
-.md-sidebar--secondary {
-  display: none !important;
+.md-header {
+  border-bottom: 2px solid #4caf7d; /* Green underline beneath the header */
+  box-shadow: none;                  /* Remove default drop shadow */
 }
+
+.md-header__title {
+  font-weight: 700;        /* Make the site title bold */
+  letter-spacing: 0.02em; /* Slightly space out the letters */
+}
+
+/* ============================================================
+   HEADER LOGO ICON
+   Controls the color and size of the Material icon
+   displayed in the top left of the header.
+   ============================================================ */
+.md-header__button.md-logo svg {
+  fill: #000000; /* Fill the SVG icon with black */
+  width: 40px;   /* Set icon width (default is 24px) */
+  height: 40px;  /* Set icon height (default is 24px) */
+}
+
+/* ============================================================
+   NAVIGATION TABS
+   The row of page links (Home, About, Portfolio, Work With Me)
+   that appears below the header bar.
+   ============================================================ */
+.md-tabs {
+  background-color: #f9f9f9;        /* Light gray background for the tab bar */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator line below tabs */
+}
+
+.md-tabs__link {
+  color: #1a1a1a !important; /* Dark text color for all tab links */
+  font-weight: 500;           /* Medium weight for readability */
+}
+
+.md-tabs__link--active {
+  color: #4caf7d !important;        /* Green text for the currently active tab */
+  border-bottom: 2px solid #4caf7d; /* Green underline on the active tab */
+}
+
+/* ============================================================
+   MAIN CONTENT AREA
+   Constrains the maximum width of the page content
+   so it doesn't stretch too wide on large screens.
+   ============================================================ */
+.md-content {
+  max-width: 860px; /* Limit content width for readability */
+}
+
+/* ============================================================
+   PAGE LAYOUT CENTERING
+   Centers the entire page content horizontally.
+   ============================================================ */
+.md-grid {
+  max-width: 1000px; /* Maximum width of the page grid */
+  margin: 0 auto;    /* Auto left/right margins center the grid */
+}
+
+/* ============================================================
+   HEADINGS
+   Styles for H1 and H2 headings across all pages.
+   ============================================================ */
+.md-typeset h1 {
+  font-weight: 800;                  /* Extra bold for page titles */
+  color: #1a1a1a;                    /* Dark color for strong contrast */
+  border-bottom: 2px solid #4caf7d; /* Green underline beneath H1 */
+  padding-bottom: 0.3em;             /* Space between text and underline */
+}
+
+.md-typeset h2 {
+  font-weight: 700; /* Bold for section headings */
+  color: #1a1a1a;   /* Dark color for strong contrast */
+  margin-top: 2em;  /* Extra space above H2 to separate sections */
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.md-typeset a {
+  color: #4caf7d; /* Green for all links */
+}
+
+.md-typeset a:hover {
+  color: #2e7d52; /* Darker green when hovering over a link */
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.md-typeset table {
+  border: 1px solid #e0e0e0; /* Light gray border around the table */
+  border-radius: 4px;         /* Slightly rounded corners */
+}
+
+.md-typeset thead {
+  background-color: #f0faf4; /* Light green tint for the header row */
+}
+
+/* ============================================================
+   CODE BLOCKS
+   ============================================================ */
+.md-typeset code {
+  background-color: #f0faf4; /* Light green tint background for code */
+  color: #1a1a1a;             /* Dark text for readability */
+  border-radius: 3px;         /* Slightly rounded corners */
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  text-align: center;
+  padding: 2rem 2rem;
+  background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #d0ead9;
+}
+
+.hero h1 {
+  font-size: 2.5rem !important;
+  border-bottom: none !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.hero h3 {
+  color: #4caf7d;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ============================================================
+   CARDS GRID
+   ============================================================ */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.15);
+  border-color: #4caf7d;
+}
+
+/* ============================================================
+   CARD ICONS
+   ============================================================ */
+.lg {
+  font-size: 2rem !important;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.md-typeset .grid.cards .twemoji {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 1rem !important;
+}
+
+.md-typeset .grid.cards .twemoji svg {
+  fill: #4caf7d !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.md-typeset .md-button--primary,
+.md-typeset .md-button {
+  background-color: transparent !important;
+  color: #4caf7d !important;
+  border-color: #4caf7d !important;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button:hover {
+  background-color: #4caf7d !important;
+  color: white !important;
+  border-color: #4caf7d !important;
+}
+
+.md-typeset a.md-button--primary {
+  color: #4caf7d !important;
+}
+
+.md-typeset a.md-button--primary:hover {
+  color: white !important;
+}
+
+/* ============================================================
+   TIP ADMONITION (Open to Opportunities banner)
+   ============================================================ */
+.md-typeset .admonition.tip {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.tip .admonition-title {
+  background-color: #d0ead9;
+  color: #1a1a1a;
+}
+
+/* ============================================================
+   NOTE ADMONITION
+   ============================================================ */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: #d0ead9;
+  color: #1a5c3a;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: #4caf7d !important;
+}
+
 /* ============================================================
    ISSUE BLOCKS (Troubleshooting)
    Custom admonition type for problem/resolution pairs.
@@ -401,7 +275,166 @@
   -webkit-mask-image: var(--md-admonition-icon--note);
 }
 
-/* Dark mode */
+/* ============================================================
+   HIDE RIGHT TABLE OF CONTENTS
+   ============================================================ */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* ============================================================
+   MOBILE OPTIMISATION
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero h3 {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset .md-button {
+    display: inline-block;
+    width: auto;
+    padding: 8px 20px;
+    margin: 4px;
+  }
+
+  .widget-header {
+    flex-wrap: wrap;
+  }
+
+  .header-text h3 {
+    font-size: 0.78rem;
+  }
+}
+
+/* ============================================================
+   DARK MODE OVERRIDES
+   ============================================================ */
+
+/* Hero section */
+[data-md-color-scheme="slate"] .hero {
+  background: linear-gradient(135deg, #1a2e24 0%, #1e1e1e 100%);
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .hero h1 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .hero h3 {
+  color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .hero p {
+  color: #aaaaaa;
+}
+
+/* Logo icon */
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
+  fill: #ffffff;
+}
+
+/* Headings */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #ffffff;
+  border-bottom-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: #ffffff;
+}
+
+/* Code blocks */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: #1a2e24;
+  color: #4caf7d;
+}
+
+/* Tables */
+[data-md-color-scheme="slate"] .md-typeset thead {
+  background-color: #1a2e24;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset thead th {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table {
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-typeset td {
+  color: #cccccc;
+}
+
+/* Cards */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li {
+  background-color: #1a2e24;
+  border-color: #2e5e3e;
+  color: #cccccc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
+  border-color: #4caf7d;
+  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.2);
+}
+
+/* Nav tabs */
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #4caf7d !important;
+  border-bottom: 2px solid #4caf7d;
+}
+
+/* Tip admonition */
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip .admonition-title {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip p {
+  color: #cccccc;
+}
+
+/* Note admonition */
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+
+/* Issue blocks */
 [data-md-color-scheme="slate"] .md-typeset .admonition.issue,
 [data-md-color-scheme="slate"] .md-typeset details.issue {
   background-color: #1e1e1e;
@@ -413,59 +446,17 @@
   background-color: #2e2e2e;
   color: #ffffff;
 }
-.md-typeset .admonition.note,
-.md-typeset details.note {
-  border-color: #4caf7d;
-  background-color: #f0faf4;
+
+/* Widget header */
+[data-md-color-scheme="slate"] .widget-header {
+  background: #1a2e24;
+  border-bottom-color: #2e5e3e;
 }
 
-.md-typeset .admonition.note > .admonition-title,
-.md-typeset details.note > summary {
-  background-color: #d0ead9;
-  color: #1a5c3a;
-}
-
-.md-typeset .admonition.note > .admonition-title::before,
-.md-typeset details.note > summary::before {
-  background-color: #4caf7d !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.note,
-[data-md-color-scheme="slate"] .md-typeset details.note {
-  background-color: #1a2e24;
-  border-color: #4caf7d;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
-[data-md-color-scheme="slate"] .md-typeset details.note > summary {
-  background-color: #2e5e3e;
+[data-md-color-scheme="slate"] .header-text h3 {
   color: #ffffff;
 }
-.md-typeset .admonition.note,
-.md-typeset details.note {
-  border-color: #4caf7d;
-  background-color: #f0faf4;
-}
 
-.md-typeset .admonition.note > .admonition-title,
-.md-typeset details.note > summary {
-  background-color: #d0ead9;
-  color: #1a5c3a;
-}
-
-.md-typeset .admonition.note > .admonition-title::before,
-.md-typeset details.note > summary::before {
-  background-color: #4caf7d !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.note,
-[data-md-color-scheme="slate"] .md-typeset details.note {
-  background-color: #1a2e24;
-  border-color: #4caf7d;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
-[data-md-color-scheme="slate"] .md-typeset details.note > summary {
-  background-color: #2e5e3e;
-  color: #ffffff;
+[data-md-color-scheme="slate"] .header-text p {
+  color: #aaaaaa;
 }
