@@ -56,3 +56,8 @@ nav:
   - Work With Me: work-with-me.md
   - Ask Claude About My Work: ask.md
   - Changelog: changelog.md
+
+extra:
+  analytics:
+    provider: google
+    property: G-J1YDJ7WLQ4
