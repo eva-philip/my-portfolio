@@ -202,3 +202,25 @@ Ensure users have a backup factor enrolled (such as email or a recovery phone nu
 - [Okta Authentication Policies overview](https://help.okta.com)
 - [Configure password policies in Okta](https://help.okta.com)
 - [Okta System Log event types reference](https://developer.okta.com/docs/reference/api/system-log/)
+
+<div class="feedback-section">
+  <p class="feedback-question">Was this documentation helpful?</p>
+  <div class="feedback-buttons">
+    <button class="feedback-btn" onclick="sendFeedback('yes', this)">🫰 Yes</button>
+    <button class="feedback-btn" onclick="sendFeedback('no', this)">👎 No</button>
+  </div>
+  <p class="feedback-thanks" style="display:none;">Thanks for your feedback!</p>
+</div>
+
+<script>
+function sendFeedback(value, btn) {
+  var section = btn.closest('.feedback-section');
+  section.querySelector('.feedback-buttons').style.display = 'none';
+  section.querySelector('.feedback-thanks').style.display = 'block';
+  gtag('event', 'feedback', {
+    'event_category': 'Helpfulness',
+    'event_label': document.title,
+    'value': value === 'yes' ? 1 : 0
+  });
+}
+</script>

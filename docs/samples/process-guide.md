@@ -643,3 +643,25 @@ Expand an issue to see the resolution.
     Every page in your `docs/` folder must be listed in the `nav` section of `mkdocs.yml`.
 
     Open `mkdocs.yml` and add the missing page to the `nav` section. The path is relative to the `docs/` folder.
+
+<div class="feedback-section">
+  <p class="feedback-question">Was this documentation helpful?</p>
+  <div class="feedback-buttons">
+    <button class="feedback-btn" onclick="sendFeedback('yes', this)">🫰 Yes</button>
+    <button class="feedback-btn" onclick="sendFeedback('no', this)">👎 No</button>
+  </div>
+  <p class="feedback-thanks" style="display:none;">Thanks for your feedback!</p>
+</div>
+
+<script>
+function sendFeedback(value, btn) {
+  var section = btn.closest('.feedback-section');
+  section.querySelector('.feedback-buttons').style.display = 'none';
+  section.querySelector('.feedback-thanks').style.display = 'block';
+  gtag('event', 'feedback', {
+    'event_category': 'Helpfulness',
+    'event_label': document.title,
+    'value': value === 'yes' ? 1 : 0
+  });
+}
+</script>

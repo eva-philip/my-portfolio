@@ -6,7 +6,7 @@ hide:
 
 <div class="hero" markdown>
 
-# Hi, I'm Evangeline Philip 👋
+<h1>Hi, I'm Evangeline Philip <span class="wave">👋</span></h1>
 
 ### Senior Technical Writer · Cybersecurity · Docs-as-Code
 

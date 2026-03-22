@@ -250,3 +250,25 @@ To fully remove the integration:
 - [CrowdStrike Add-on for Splunk on Splunkbase](https://splunkbase.splunk.com)
 - [Falcon Query Language (FQL) reference](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql)
 - [Splunk index management documentation](https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Setupmultipleindexes)
+
+<div class="feedback-section">
+  <p class="feedback-question">Was this documentation helpful?</p>
+  <div class="feedback-buttons">
+    <button class="feedback-btn" onclick="sendFeedback('yes', this)">🫰 Yes</button>
+    <button class="feedback-btn" onclick="sendFeedback('no', this)">👎 No</button>
+  </div>
+  <p class="feedback-thanks" style="display:none;">Thanks for your feedback!</p>
+</div>
+
+<script>
+function sendFeedback(value, btn) {
+  var section = btn.closest('.feedback-section');
+  section.querySelector('.feedback-buttons').style.display = 'none';
+  section.querySelector('.feedback-thanks').style.display = 'block';
+  gtag('event', 'feedback', {
+    'event_category': 'Helpfulness',
+    'event_label': document.title,
+    'value': value === 'yes' ? 1 : 0
+  });
+}
+</script>
