@@ -1,0 +1,740 @@
+/* ============================================================
+   GLOBAL COLOR VARIABLES
+   Overrides MkDocs Material's default color system.
+   These variables are used throughout the theme automatically.
+   ============================================================ */
+:root {
+  --md-primary-fg-color: #ffffff;        /* Main header background — set to white */
+  --md-primary-fg-color--light: #ffffff; /* Lighter variant of header background */
+  --md-primary-fg-color--dark: #f5f5f5;  /* Darker variant of header background */
+  --md-primary-bg-color: #1a1a1a;        /* Text color on primary background */
+  --md-accent-fg-color: #4caf7d;         /* Accent color used for links and highlights */
+}
+
+/* ============================================================
+   HEADER BAR
+   The top bar containing the site title and logo.
+   We remove the default shadow and add a green bottom border
+   to give it a clean, minimal look.
+   ============================================================ */
+.md-header {
+  border-bottom: 2px solid #4caf7d; /* Green underline beneath the header */
+  box-shadow: none;                  /* Remove default drop shadow */
+}
+
+.md-header__title {
+  font-weight: 700;        /* Make the site title bold */
+  letter-spacing: 0.02em; /* Slightly space out the letters */
+}
+
+/* ============================================================
+   HEADER LOGO ICON
+   Controls the color and size of the Material icon
+   displayed in the top left of the header.
+   ============================================================ */
+.md-header__button.md-logo svg {
+  fill: #000000; /* Fill the SVG icon with black */
+  width: 40px;   /* Set icon width (default is 24px) */
+  height: 40px;  /* Set icon height (default is 24px) */
+}
+
+/* ============================================================
+   NAVIGATION TABS
+   The row of page links (Home, About, Portfolio, Work With Me)
+   that appears below the header bar.
+   ============================================================ */
+.md-tabs {
+  background-color: #f9f9f9;        /* Light gray background for the tab bar */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator line below tabs */
+}
+
+.md-tabs__link {
+  color: #1a1a1a !important; /* Dark text color for all tab links */
+  font-weight: 500;           /* Medium weight for readability */
+}
+
+.md-tabs__link--active {
+  color: #4caf7d !important;        /* Green text for the currently active tab */
+  border-bottom: 2px solid #4caf7d; /* Green underline on the active tab */
+}
+
+/* ============================================================
+   MAIN CONTENT AREA
+   Constrains the maximum width of the page content
+   so it doesn't stretch too wide on large screens.
+   ============================================================ */
+.md-content {
+  max-width: 860px; /* Limit content width for readability */
+}
+
+/* ============================================================
+   PAGE LAYOUT CENTERING
+   Centers the entire page content horizontally.
+   ============================================================ */
+.md-grid {
+  max-width: 1000px; /* Maximum width of the page grid */
+  margin: 0 auto;    /* Auto left/right margins center the grid */
+}
+
+/* ============================================================
+   HEADINGS
+   Styles for H1 and H2 headings across all pages.
+   ============================================================ */
+.md-typeset h1 {
+  font-weight: 800;                  /* Extra bold for page titles */
+  color: #1a1a1a;                    /* Dark color for strong contrast */
+  border-bottom: 2px solid #4caf7d; /* Green underline beneath H1 */
+  padding-bottom: 0.3em;             /* Space between text and underline */
+}
+
+.md-typeset h2 {
+  font-weight: 700; /* Bold for section headings */
+  color: #1a1a1a;   /* Dark color for strong contrast */
+  margin-top: 2em;  /* Extra space above H2 to separate sections */
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.md-typeset a {
+  color: #4caf7d; /* Green for all links */
+}
+
+.md-typeset a:hover {
+  color: #2e7d52; /* Darker green when hovering over a link */
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.md-typeset table {
+  border: 1px solid #e0e0e0; /* Light gray border around the table */
+  border-radius: 4px;         /* Slightly rounded corners */
+}
+
+.md-typeset thead {
+  background-color: #f0faf4; /* Light green tint for the header row */
+}
+
+/* ============================================================
+   CODE BLOCKS
+   ============================================================ */
+.md-typeset code {
+  background-color: #f0faf4; /* Light green tint background for code */
+  color: #1a1a1a;             /* Dark text for readability */
+  border-radius: 3px;         /* Slightly rounded corners */
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  text-align: center;
+  padding: 2rem 2rem;
+  background: linear-gradient(135deg, #f0faf4 0%, #ffffff 100%);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #d0ead9;
+}
+
+.hero h1 {
+  font-size: 2.5rem !important;
+  border-bottom: none !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.hero h3 {
+  color: #4caf7d;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ============================================================
+   CARDS GRID
+   ============================================================ */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.15);
+  border-color: #4caf7d;
+}
+
+/* ============================================================
+   CARD ICONS
+   ============================================================ */
+.lg {
+  font-size: 2rem !important;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.md-typeset .grid.cards .twemoji {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 1rem !important;
+}
+
+.md-typeset .grid.cards .twemoji svg {
+  fill: #4caf7d !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.md-typeset .md-button--primary,
+.md-typeset .md-button {
+  background-color: transparent !important;
+  color: #4caf7d !important;
+  border-color: #4caf7d !important;
+  border-radius: 8px !important;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button:hover {
+  background-color: #4caf7d !important;
+  color: white !important;
+  border-color: #4caf7d !important;
+}
+
+.md-typeset a.md-button--primary {
+  color: #4caf7d !important;
+}
+
+.md-typeset a.md-button--primary:hover {
+  color: white !important;
+}
+
+/* ============================================================
+   TIP ADMONITION (Open to Opportunities banner)
+   ============================================================ */
+.md-typeset .admonition.tip {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.tip .admonition-title {
+  background-color: #d0ead9;
+  color: #1a1a1a;
+}
+
+/* ============================================================
+   NOTE ADMONITION
+   ============================================================ */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #4caf7d;
+  background-color: #f0faf4;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: #d0ead9;
+  color: #1a5c3a;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: #4caf7d !important;
+}
+
+/* ============================================================
+   ISSUE BLOCKS (Troubleshooting)
+   Custom admonition type for problem/resolution pairs.
+   ============================================================ */
+.md-typeset .admonition.issue,
+.md-typeset details.issue {
+  border-color: #666;
+  background-color: #f7f7f7;
+}
+
+.md-typeset .admonition.issue > .admonition-title,
+.md-typeset details.issue > summary {
+  background-color: #e4e4e4;
+  color: #1a1a1a;
+}
+
+.md-typeset .admonition.issue > .admonition-title::before,
+.md-typeset details.issue > summary::before {
+  background-color: #666 !important;
+  mask-image: var(--md-admonition-icon--note);
+  -webkit-mask-image: var(--md-admonition-icon--note);
+}
+
+/* ============================================================
+   HIDE RIGHT TABLE OF CONTENTS
+   ============================================================ */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* ============================================================
+   PORTFOLIO GRID CARDS
+   ============================================================ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.portfolio-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s ease;
+  justify-content: space-between;
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-card-header {
+  margin-bottom: 0.25rem;
+}
+
+.portfolio-tag {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.portfolio-card h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.portfolio-card-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
+
+.portfolio-card-desc {
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.portfolio-card a.md-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   IMPACT SECTION
+   ============================================================ */
+.impact-section {
+  background-color: #f0faf4;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.impact-section h2 {
+  margin-top: 0 !important;
+}
+
+/* ============================================================
+   TOOLS SECTION
+   ============================================================ */
+.tools-section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.tools-section h2 {
+  margin-top: 0 !important;
+  color: #1a1a1a;
+}
+
+.tools-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tools-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4caf7d;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 130px;
+  padding-top: 0.3rem;
+}
+
+.tools-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tool-tag {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  padding: 0.2rem 0.6rem;
+  color: #1a1a1a;
+}
+
+/* ============================================================
+   MOBILE OPTIMISATION
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero h3 {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset .md-button {
+    display: inline-block;
+    width: auto;
+    padding: 8px 20px;
+    margin: 4px;
+  }
+
+  .widget-header {
+    flex-wrap: wrap;
+  }
+
+  .header-text h3 {
+    font-size: 0.78rem;
+  }
+
+  .tools-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tools-label {
+    min-width: unset;
+  }
+}
+
+/* ============================================================
+   DARK MODE OVERRIDES
+   ============================================================ */
+
+/* Hero section */
+[data-md-color-scheme="slate"] .hero {
+  background: linear-gradient(135deg, #1a2e24 0%, #1e1e1e 100%);
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .hero h1 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .hero h3 {
+  color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .hero p {
+  color: #aaaaaa;
+}
+
+/* Logo icon */
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
+  fill: #ffffff;
+}
+
+/* Headings */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #ffffff;
+  border-bottom-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: #ffffff;
+}
+
+/* Code blocks */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: #1a2e24;
+  color: #4caf7d;
+}
+
+/* Tables */
+[data-md-color-scheme="slate"] .md-typeset thead {
+  background-color: #1a2e24;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset thead th {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table {
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-typeset td {
+  color: #cccccc;
+}
+
+/* Cards */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li {
+  background-color: #1a2e24;
+  border-color: #2e5e3e;
+  color: #cccccc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
+  border-color: #4caf7d;
+  box-shadow: 0 4px 12px rgba(76, 175, 125, 0.2);
+}
+
+/* Nav tabs */
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #4caf7d !important;
+  border-bottom: 2px solid #4caf7d;
+}
+
+/* Tip admonition */
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip .admonition-title {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip p {
+  color: #cccccc;
+}
+
+/* Note admonition */
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  background-color: #1a2e24;
+  border-color: #4caf7d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary {
+  background-color: #2e5e3e;
+  color: #ffffff;
+}
+
+/* Issue blocks */
+[data-md-color-scheme="slate"] .md-typeset .admonition.issue,
+[data-md-color-scheme="slate"] .md-typeset details.issue {
+  background-color: #1e1e1e;
+  border-color: #888;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.issue > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.issue > summary {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+
+/* Widget header */
+[data-md-color-scheme="slate"] .widget-header {
+  background: #1a2e24;
+  border-bottom-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .header-text h3 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .header-text p {
+  color: #aaaaaa;
+}
+
+/* Portfolio cards */
+[data-md-color-scheme="slate"] .portfolio-card {
+  border-color: #2e5e3e;
+}
+
+[data-md-color-scheme="slate"] .portfolio-card:hover {
+  box-shadow: 0 4px 16px rgba(76, 175, 125, 0.2);
+}
+
+[data-md-color-scheme="slate"] .portfolio-tag {
+  background-color: #1a2e24;
+  color: #4caf7d;
+}
+
+/* Impact section */
+[data-md-color-scheme="slate"] .impact-section {
+  background-color: #1a2e24;
+}
+
+[data-md-color-scheme="slate"] .impact-section h2 {
+  color: #ffffff;
+}
+
+/* Tools section */
+[data-md-color-scheme="slate"] .tools-section {
+  background-color: #1e1e1e;
+}
+
+[data-md-color-scheme="slate"] .tools-section h2 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .tool-tag {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #cccccc;
+}
+
+/* ============================================================
+   FEEDBACK SECTION
+   ============================================================ */
+.feedback-section {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.feedback-question {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.feedback-btn {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-btn:hover {
+  border-color: #4caf7d;
+  box-shadow: 0 2px 8px rgba(76, 175, 125, 0.15);
+}
+
+.feedback-thanks {
+  color: #4caf7d;
+  font-weight: 600;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] .feedback-section {
+  background-color: #1e1e1e;
+}
+
+[data-md-color-scheme="slate"] .feedback-question {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .feedback-btn {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #cccccc;
+}
+/* ============================================================
+   ASK CLAUDE NAV HIGHLIGHT
+   ============================================================ */
+
+.md-tabs__item a[href*="ask"]::after {
+  content: "✦";
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  font-size: 18px;
+  color: #3e824c;
+  animation: sparkle 3s linear infinite;
+  position: relative;
+  bottom: 3px;
+}
+
+@keyframes sparkle {
+  0%   { opacity: 1; transform: scale(1) rotate(0deg); text-shadow: none; }
+  25%  { opacity: 0.3; transform: scale(0.7) rotate(90deg); text-shadow: none; }
+  45%  { opacity: 0.9; transform: scale(1.2) rotate(162deg); text-shadow: 0 0 4px rgba(76, 175, 125, 0.4); }
+  50%  { opacity: 1; transform: scale(1.3) rotate(180deg); text-shadow: 0 0 8px rgba(76, 175, 125, 0.9), 0 0 20px rgba(76, 175, 125, 0.5); }
+  55%  { opacity: 0.9; transform: scale(1.2) rotate(198deg); text-shadow: 0 0 12px rgba(76, 175, 125, 0.4), 0 0 30px rgba(76, 175, 125, 0.1); }
+  65%  { opacity: 0.5; transform: scale(0.9) rotate(234deg); text-shadow: 0 0 4px rgba(76, 175, 125, 0.1); }
+  75%  { opacity: 0.3; transform: scale(0.7) rotate(270deg); text-shadow: none; }
+  100% { opacity: 1; transform: scale(1) rotate(360deg); text-shadow: none; }
+}
+
+/* ============================================================
+   WAVE EMOJI ANIMATION
+   ============================================================ */
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 45s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%    { transform: rotate(0deg); }
+  0.5%  { transform: rotate(14deg); }
+  1%    { transform: rotate(-8deg); }
+  1.5%  { transform: rotate(14deg); }
+  2%    { transform: rotate(-4deg); }
+  2.5%  { transform: rotate(10deg); }
+  3%    { transform: rotate(0deg); }
+  100%  { transform: rotate(0deg); }
+}

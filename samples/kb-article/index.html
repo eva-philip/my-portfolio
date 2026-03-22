@@ -1,0 +1,1477 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio of Evangeline Philip, Senior Technical Writer specializing in cybersecurity, API documentation, and docs-as-code workflows.">
+      
+      
+      
+      
+        <link rel="prev" href="../process-guide/">
+      
+      
+        <link rel="next" href="../integration-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>KB Article - Evangeline Philip | Senior Technical Writer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-J1YDJ7WLQ4"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-J1YDJ7WLQ4",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-J1YDJ7WLQ4",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#troubleshoot-okta-mfa-failures-after-a-password-reset" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Evangeline Philip | Senior Technical Writer" class="md-header__button md-logo" aria-label="Evangeline Philip | Senior Technical Writer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 16h3L12 7 2 16h3l7-6.31zM7 8.81V7H4v4.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Evangeline Philip | Senior Technical Writer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              KB Article
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../portfolio/" class="md-tabs__link">
+          
+  
+  
+  Portfolio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../work-with-me/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Work With Me
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ask/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Ask Claude About My Work
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Evangeline Philip | Senior Technical Writer" class="md-nav__button md-logo" aria-label="Evangeline Philip | Senior Technical Writer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 16h3L12 7 2 16h3l7-6.31zM7 8.81V7H4v4.5z"/></svg>
+
+    </a>
+    Evangeline Philip | Senior Technical Writer
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Portfolio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KB Article
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KB Article
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#symptoms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symptoms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common causes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolution steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-the-okta-system-log-for-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Check the Okta System Log for errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-factor-enrollment-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Check factor enrollment status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-the-users-authenticator-app-time-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Check the user's authenticator app time sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clear-the-users-active-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clear the user's active sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-enroll-the-users-mfa-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Re-enroll the user's MFA factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-review-the-mfa-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Review the MFA policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevention-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevention and best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-commands-and-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related commands and endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related articles
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../before-after/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Before & After
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../work-with-me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work With Me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ask/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ask Claude About My Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#symptoms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symptoms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common causes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolution steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-the-okta-system-log-for-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Check the Okta System Log for errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-factor-enrollment-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Check factor enrollment status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-the-users-authenticator-app-time-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Check the user's authenticator app time sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clear-the-users-active-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clear the user's active sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-enroll-the-users-mfa-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Re-enroll the user's MFA factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-review-the-mfa-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Review the MFA policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevention-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevention and best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-commands-and-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related commands and endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related articles
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="troubleshoot-okta-mfa-failures-after-a-password-reset">Troubleshoot Okta MFA failures after a password reset</h1>
+<table>
+<thead>
+<tr>
+<th>About this article</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Article type</strong></td>
+<td>Troubleshooting</td>
+</tr>
+<tr>
+<td><strong>Audience</strong></td>
+<td>IT administrators and end users</td>
+</tr>
+<tr>
+<td><strong>Product</strong></td>
+<td>Okta Workforce Identity</td>
+</tr>
+</tbody>
+</table>
+<p>After resetting a password in Okta, some users find that their multi-factor authentication (MFA) prompt does not appear, fails to send, or returns an error. This article helps you identify the cause and restore MFA functionality.</p>
+<hr />
+<h2 id="symptoms">Symptoms</h2>
+<ul>
+<li>MFA prompt does not appear after password reset</li>
+<li>Authenticator app shows an invalid or expired code</li>
+<li>Push notification is not received after password reset</li>
+<li>User receives the error: <code>Your session has expired. Please sign in again.</code></li>
+<li>User is stuck in a loop between the password reset and MFA screens</li>
+<li>SMS or email factor is sent to an old or unrecognized number or address</li>
+</ul>
+<hr />
+<h2 id="common-causes">Common causes</h2>
+<table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Factor enrollment reset</strong></td>
+<td>The password reset flow was configured to reset all enrolled factors, requiring re-enrollment</td>
+</tr>
+<tr>
+<td><strong>Authenticator app out of sync</strong></td>
+<td>The time on the user's device is out of sync, causing TOTP codes to be invalid</td>
+</tr>
+<tr>
+<td><strong>Session conflict</strong></td>
+<td>An active session from before the password reset is conflicting with the new session</td>
+</tr>
+<tr>
+<td><strong>Policy misconfiguration</strong></td>
+<td>The MFA policy does not apply correctly after a password reset trigger</td>
+</tr>
+<tr>
+<td><strong>Factor not enrolled</strong></td>
+<td>The user never completed factor enrollment or their enrollment was removed by an admin</td>
+</tr>
+<tr>
+<td><strong>Network or email delay</strong></td>
+<td>SMS or email factors are delayed due to carrier or mail server issues</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="before-you-begin">Before you begin</h2>
+<p>Confirm the following before working through the resolution steps:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Admin access</strong></td>
+<td>You need Okta admin access to view and modify user factor enrollment</td>
+</tr>
+<tr>
+<td><strong>User identity confirmed</strong></td>
+<td>Verify the user's identity through an alternative channel before making changes</td>
+</tr>
+<tr>
+<td><strong>Okta System Log access</strong></td>
+<td>You will need to review the System Log at <strong>Reports &gt; System Log</strong> to identify the root cause</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="resolution-steps">Resolution steps</h2>
+<p>Work through the steps below in order. After completing all steps, see <a href="#verify-resolution">Verify resolution</a>.</p>
+<h3 id="step-1-check-the-okta-system-log-for-errors">Step 1: Check the Okta System Log for errors</h3>
+<p>The System Log is the fastest way to identify what happened during the password reset flow.</p>
+<ol>
+<li>In the Okta Admin Console, go to <strong>Reports &gt; System Log</strong>.</li>
+<li>Search for the user's email address.</li>
+<li>Filter events to the time of the password reset.</li>
+<li>
+<p>Look for any of the following event types:</p>
+<table>
+<thead>
+<tr>
+<th>Event type</th>
+<th>What it indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user.authentication.auth_via_mfa</code></td>
+<td>MFA was attempted — check the outcome for failure details</td>
+</tr>
+<tr>
+<td><code>user.mfa.factor.deactivate</code></td>
+<td>A factor was deactivated during or after the reset</td>
+</tr>
+<tr>
+<td><code>user.mfa.factor.reset_all</code></td>
+<td>All factors were reset — user must re-enroll</td>
+</tr>
+<tr>
+<td><code>policy.evaluate_sign_on</code></td>
+<td>Sign-on policy was evaluated — check if MFA was required</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Note the event outcome and error message. Use this information to guide the remaining steps.</p>
+</li>
+</ol>
+<hr />
+<h3 id="step-2-check-factor-enrollment-status">Step 2: Check factor enrollment status</h3>
+<ol>
+<li>In the Okta Admin Console, go to <strong>Directory &gt; People</strong>.</li>
+<li>Search for and select the affected user.</li>
+<li>Click the <strong>Security</strong> tab.</li>
+<li>Under <strong>Multifactor Authentication</strong>, review the enrolled factors.</li>
+</ol>
+<p>If no factors are enrolled, or all factors show as inactive, the user must re-enroll. See <a href="#step-5-re-enroll-the-users-mfa-factor">Step 5: Re-enroll the user's MFA factor</a>.</p>
+<p>If factors are enrolled but not working, continue to Step 3.</p>
+<hr />
+<h3 id="step-3-check-the-users-authenticator-app-time-sync">Step 3: Check the user's authenticator app time sync</h3>
+<p>TOTP-based authenticators (such as Okta Verify and Google Authenticator) generate codes based on the current time. If the device clock is out of sync by more than 30 seconds, codes will be invalid.</p>
+<p>Ask the user to check their device time settings:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">iOS</label><label for="__tabbed_1_2">Android</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Go to <strong>Settings &gt; General &gt; Date and Time</strong>.</li>
+<li>Enable <strong>Set Automatically</strong>.</li>
+<li>Restart the authenticator app and try again.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Go to <strong>Settings &gt; General Management &gt; Date and Time</strong>.</li>
+<li>Enable <strong>Automatic date and time</strong>.</li>
+<li>Restart the authenticator app and try again.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>If the user is using Google Authenticator specifically, they can sync the time manually:</p>
+<ol>
+<li>Open Google Authenticator.</li>
+<li>Go to <strong>Settings &gt; Time correction for codes &gt; Sync now</strong>.</li>
+</ol>
+<hr />
+<h3 id="step-4-clear-the-users-active-sessions">Step 4: Clear the user's active sessions</h3>
+<p>A session conflict from before the password reset can prevent MFA from completing correctly.</p>
+<ol>
+<li>In the Okta Admin Console, go to <strong>Directory &gt; People</strong>.</li>
+<li>Search for and select the affected user.</li>
+<li>Click <strong>More Actions &gt; Clear User Sessions</strong>.</li>
+<li>Ask the user to close all browser windows and sign in again from a fresh session.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clearing sessions signs the user out of all active Okta sessions across all devices. Inform the user before doing this.</p>
+</div>
+<hr />
+<h3 id="step-5-re-enroll-the-users-mfa-factor">Step 5: Re-enroll the user's MFA factor</h3>
+<p>If the user's factors were reset or are not functioning, reset them so the user can re-enroll.</p>
+<ol>
+<li>In the Okta Admin Console, go to <strong>Directory &gt; People</strong>.</li>
+<li>Search for and select the affected user.</li>
+<li>Click the <strong>Security</strong> tab.</li>
+<li>Under <strong>Multifactor Authentication</strong>, click <strong>Reset</strong> next to the affected factor, or click <strong>Reset all factors</strong> if multiple factors are affected.</li>
+<li>Ask the user to sign in. They will be prompted to enroll their factor again from scratch.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Resetting all factors requires the user to re-enroll every factor. Confirm this is necessary before proceeding, and verify the user's identity through an alternative method first.</p>
+</div>
+<hr />
+<h3 id="step-6-review-the-mfa-policy">Step 6: Review the MFA policy</h3>
+<p>If the issue affects multiple users or recurs after re-enrollment, the MFA policy may be misconfigured.</p>
+<ol>
+<li>In the Okta Admin Console, go to <strong>Security &gt; Multifactor</strong>.</li>
+<li>Review the <strong>Factor Enrollment</strong> policy assigned to the user's group.</li>
+<li>Confirm that the policy requires MFA enrollment and does not have a grace period that allows users to skip MFA after a password reset.</li>
+<li>Go to <strong>Security &gt; Authentication Policies</strong> and review the sign-on rules applied to the user's applications.</li>
+<li>Confirm that MFA is required at the correct step in the authentication flow.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If users are consistently bypassing MFA after a password reset, check whether your <strong>Password Policy</strong> is configured to reset all factors on password change. Go to <strong>Security &gt; Authentication &gt; Password</strong> and review the <strong>Reset all factors on password change</strong> setting.</p>
+</div>
+<hr />
+<h2 id="verify-resolution">Verify resolution</h2>
+<p>After completing the relevant steps above:</p>
+<ol>
+<li>Ask the user to sign out completely and clear their browser cache.</li>
+<li>Have the user navigate to your Okta sign-in page and enter their credentials.</li>
+<li>Confirm that the MFA prompt appears and completes successfully.</li>
+<li>Check <strong>Reports &gt; System Log</strong> and confirm there are no new authentication errors for the user.</li>
+</ol>
+<p>If the issue continues after completing all steps, collect the relevant System Log entries and contact <a href="https://support.okta.com">Okta Support</a>.</p>
+<hr />
+<h2 id="prevention-and-best-practices">Prevention and best practices</h2>
+<p><strong>Audit your password policy reset settings regularly.</strong>
+The <strong>Reset all factors on password change</strong> setting in your password policy can cause MFA disruptions if enabled unintentionally. Review this setting quarterly and confirm it aligns with your security requirements.</p>
+<p><strong>Communicate factor re-enrollment to users proactively.</strong>
+If a password reset is expected to reset MFA factors, notify users in advance so they are not caught off guard. Include re-enrollment instructions in the notification.</p>
+<p><strong>Enable Okta ThreatInsight.</strong>
+ThreatInsight detects suspicious authentication patterns and can alert you to brute-force attempts that may trigger unexpected password resets. Enable it at <strong>Security &gt; General &gt; ThreatInsight</strong>.</p>
+<p><strong>Use phishing-resistant factors where possible.</strong>
+FIDO2/WebAuthn factors such as Okta FastPass are not affected by time-sync issues and are more resilient than TOTP-based authenticators. Consider rolling these out to high-risk user groups.</p>
+<p><strong>Set up authenticator recovery options.</strong>
+Ensure users have a backup factor enrolled (such as email or a recovery phone number) so they can recover access without admin intervention if their primary factor fails.</p>
+<hr />
+<h2 id="related-commands-and-endpoints">Related commands and endpoints</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Method</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List user factors</td>
+<td>Okta API</td>
+<td><code>GET /api/v1/users/{userId}/factors</code></td>
+</tr>
+<tr>
+<td>Reset a specific factor</td>
+<td>Okta API</td>
+<td><code>DELETE /api/v1/users/{userId}/factors/{factorId}</code></td>
+</tr>
+<tr>
+<td>Reset all user factors</td>
+<td>Okta API</td>
+<td><code>POST /api/v1/users/{userId}/lifecycle/reset_factors</code></td>
+</tr>
+<tr>
+<td>Clear user sessions</td>
+<td>Okta API</td>
+<td><code>DELETE /api/v1/users/{userId}/sessions</code></td>
+</tr>
+<tr>
+<td>View System Log</td>
+<td>Admin Console</td>
+<td><strong>Reports &gt; System Log</strong></td>
+</tr>
+<tr>
+<td>Review authentication policy</td>
+<td>Admin Console</td>
+<td><strong>Security &gt; Authentication Policies</strong></td>
+</tr>
+<tr>
+<td>Review factor enrollment policy</td>
+<td>Admin Console</td>
+<td><strong>Security &gt; Multifactor &gt; Factor Enrollment</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="related-articles">Related articles</h2>
+<ul>
+<li><a href="https://help.okta.com">Enroll and manage MFA factors in Okta</a></li>
+<li><a href="https://help.okta.com">Okta Authentication Policies overview</a></li>
+<li><a href="https://help.okta.com">Configure password policies in Okta</a></li>
+<li><a href="https://developer.okta.com/docs/reference/api/system-log/">Okta System Log event types reference</a></li>
+</ul>
+<div class="feedback-section">
+  <p class="feedback-question">Was this documentation helpful?</p>
+  <div class="feedback-buttons">
+    <button class="feedback-btn" onclick="sendFeedback('yes', this)">🫰 Yes</button>
+    <button class="feedback-btn" onclick="sendFeedback('no', this)">👎 No</button>
+  </div>
+  <p class="feedback-thanks" style="display:none;">Thanks for your feedback!</p>
+</div>
+
+<script>
+function sendFeedback(value, btn) {
+  var section = btn.closest('.feedback-section');
+  section.querySelector('.feedback-buttons').style.display = 'none';
+  section.querySelector('.feedback-thanks').style.display = 'block';
+  gtag('event', 'feedback', {
+    'event_category': 'Helpfulness',
+    'event_label': document.title,
+    'value': value === 'yes' ? 1 : 0
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
